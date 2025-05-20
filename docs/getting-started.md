@@ -1,6 +1,6 @@
 # Getting Started
 
-Welcome to the Malloc Security SDK for Android!
+Welcome to the Malloc Security SDK for Android !
 
 This SDK empowers your app with advanced threat detection, safeguarding user privacy and security. It is privacy-first, lightweight, and easy to integrate.
 
