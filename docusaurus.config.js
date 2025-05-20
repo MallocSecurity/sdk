@@ -29,7 +29,7 @@ const config = {
           path: 'docs',
           routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: 'https://github.com/Malloc-Tech/malloc-security-sdk.github.io/edit/main/',
+          editUrl: 'https://github.com/Malloc-Tech/sdk/edit/main/',
         },
         blog: false, // ⛔ Turned off blogging since not used
         theme: {
@@ -42,12 +42,12 @@ const config = {
   themeConfig:
   /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
       ({
-        image: 'img/malloc-banner.png',
+        image: 'img/malloc-banner.jpg',
         navbar: {
           title: 'Malloc Security SDK',
           logo: {
             alt: 'Malloc Logo',
-            src: 'img/logo.svg',
+            src: 'img/logo.jpg',
           },
           items: [
             {
@@ -58,7 +58,7 @@ const config = {
             },
 
             {
-              href: 'https://github.com/Malloc-Tech/malloc-security-sdk.github.io/',
+              href: 'https://github.com/Malloc-Tech/sdk/',
               label: 'GitHub',
               position: 'right',
             },
