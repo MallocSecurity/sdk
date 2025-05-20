@@ -8,53 +8,73 @@ The `MallocSDK` class is the main interface for interacting with the Malloc Secu
 
 These methods are used to initialize the SDK. For full usage instructions, see the [Initialization & Authentication](./authentication.md) guide.
 
+This operation is available in both **synchronous** and **asynchronous** versions (with callbacks).
+
 ```java
-public static void initializeAsync(Context context, String key, InitializationFinished callback)
-public static synchronized Boolean initializeSync(Context context, String key)
+// Asynchronous
+void initializeAsync(Context context, String key, InitializationFinished callback)
+
+// Synchronous
+Boolean initializeSync(Context context, String key)
 ```
 
 ---
 
 ## 🪓 Root Detection
 
-Check whether the device is rooted. This includes various root indicators.
+Check whether the device is rooted. This includes various root indicators. See the [Root Check](./rootCheck.md) guide.
+
+This operation is available in both **synchronous** and **asynchronous** versions (with callbacks).
 
 ```java
-public static void rootCheckAsync(@NonNull ScanFinishedCallback callback)
-public static JSONObject rootCheckSync()
+// Asynchronous
+void rootCheckAsync(@NonNull ScanFinishedCallback callback)
+
+// Synchronous
+static JSONObject rootCheckSync()
 ```
 
 ---
 
 ## 🌐 Domain Check
 
-Validate and categorize a domain by contacting Malloc's backend service.
+Validate and categorize a domain by contacting Malloc's backend service, see the [URL Check](./checkURL.md) guide.
+
+This operation is available in both **synchronous** and **asynchronous** versions (with callbacks).
 
 ```java
-public static void checkURLAsync(String domain, @NonNull ScanFinishedCallback callback)
-public static JSONObject checkURLSync(String domain)
+// Asynchronous
+void checkURLAsync(String domain, @NonNull ScanFinishedCallback callback)
+
+// Synchronous
+JSONObject checkURLSync(String domain)
 ```
 
 ---
 
 ## 🕵️‍♀️ Spyware Detection
 
-Scan the device for signs that may indicate it is compromised by spyware.
+Scan the device for signs that may indicate it is compromised by spyware, see the [Spyware Indicators Check](./scanForDeviceSpyware.md) guide.
+
+This operation is available in both **synchronous** and **asynchronous** versions (with callbacks).
 
 ```java
-public static void scanForDeviceSpywareAsync(@NonNull ScanFinishedCallback callback)
-public static JSONObject scanForDeviceSpywareSync()
+// Asynchronous
+void scanForDeviceSpywareAsync(@NonNull ScanFinishedCallback callback)
+
+// Synchronous
+JSONObject scanForDeviceSpywareSync()
 ```
 
 ---
 
 ## 📱 App Scanning
 
-Scan installed apps for spyware, dangerous permissions, and enabled accessibility services.
+Scan installed apps for spyware, dangerous permissions, and enabled accessibility services, see the [Scan Installed Apps](./scanApps.md) guide.
 
 ### 🔍 Per-App Scanning (with updates)
 ```java
-public static void scanAppsPerAppAsync(
+void scanAppsPerAppAsync(
     @NonNull AppsScanningUpdatesCallback appsScanningUpdatesCallback,
     boolean include_system_apps,
     boolean include_apps_with_no_internet_access
@@ -63,7 +83,7 @@ public static void scanAppsPerAppAsync(
 
 ### 🧾 Summary Scanning (final result only)
 ```java
-public static void scanAppsAsync(
+void scanAppsAsync(
     @NonNull ScanFinishedCallback callback,
     boolean include_system_apps,
     boolean include_apps_with_no_internet_access
@@ -74,16 +94,20 @@ public static void scanAppsAsync(
 
 ## 📂 File Scanning
 
-Scan the device’s downloads folder for potentially malicious APKs.
+Scan the device’s downloads folder for potentially malicious APKs, see the [Downloaded Files Scan](./scanDownloadedFiles.md) guide.
+
+This operation is available in both **synchronous** and **asynchronous** versions (with callbacks).
 
 ### 🔍 With progress updates
 ```java
-public static void scanDownloadedFilesAsync(@NonNull FilesScanningUpdatesCallback callback)
+// Asynchronous
+void scanDownloadedFilesAsync(@NonNull FilesScanningUpdatesCallback callback)
 ```
 
 ### ✅ Sync scan with progress callback
 ```java
-public static JSONObject scanDownloadedFilesSync(FilesScanningUpdatesCallback callback)
+// Synchronous
+JSONObject scanDownloadedFilesSync(FilesScanningUpdatesCallback callback)
 ```
 
 ---
@@ -92,21 +116,21 @@ public static JSONObject scanDownloadedFilesSync(FilesScanningUpdatesCallback ca
 
 ### ✅ InitializationFinished
 ```java
-public interface InitializationFinished {
+interface InitializationFinished {
     void onInitializationFinished(Boolean access_granted);
 }
 ```
 
 ### 🧪 ScanFinishedCallback
 ```java
-public interface ScanFinishedCallback {
+interface ScanFinishedCallback {
     void onScanFinished(JSONObject result);
 }
 ```
 
 ### 📲 AppsScanningUpdatesCallback
 ```java
-public interface AppsScanningUpdatesCallback {
+interface AppsScanningUpdatesCallback {
     void onScanFinished(JSONObject result);
     void onScanningAppUpdate(ApplicationInfo now_scanning_application_info);
     void onAppsToScanListReady(List<ApplicationInfo> apps_to_scan);
@@ -116,7 +140,7 @@ public interface AppsScanningUpdatesCallback {
 
 ### 📁 FilesScanningUpdatesCallback
 ```java
-public interface FilesScanningUpdatesCallback {
+interface FilesScanningUpdatesCallback {
     void onScanFinished(JSONObject result);
     void onScanningFileUpdate(String file_name, String file_path);
     void onFilesListGenerated(List<FileToScan> files_to_scan);
