@@ -6,7 +6,7 @@ The Malloc SDK handles authentication internally and does not require client-sid
 
 To begin using `MallocSecuritySDK`, you must initialize it once in your `Application` class. This setup connects the SDK with your API key and prepares it for future security and privacy operations.
 
-In your `Application` class (`MyApplication.java` or `MyApplication.kt`), override the `onCreate()` method and initialize the SDK as shown:
+In your `Application` class (`MyApplication.java` or `MyApplication.kt`), initialize the SDK in the `onCreate()` method method as shown:
 
 ### 🚀 Java
 ```java
@@ -29,6 +29,7 @@ public class MyApplication extends Application {
                 MallocSDK.initialize(getApplicationContext(), key);
             }
         });
+        mallocSDKExecutorService.shutdown();
     }
 }
 ```
@@ -48,6 +49,7 @@ class MyApplication : Application() {
             val key = "your-secret-api-key" // Replace with your actual API key
             MallocSDK.initialize(applicationContext, key)
         }
+        mallocSDKExecutorService.shutdown()
     }
 }
 
