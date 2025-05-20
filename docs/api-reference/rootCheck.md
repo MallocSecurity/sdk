@@ -122,7 +122,7 @@ executor.shutdown();
 
 ---
 
-## Best Practices
+## ✅ Best Practices
 
 - Always perform root checks **after SDK initialization** is completed.
 - Use the **asynchronous** version for better UI performance.
