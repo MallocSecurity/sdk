@@ -1,4 +1,4 @@
-# 🧠 MallocSDK Class Reference
+# MallocSDK Class Reference
 
 The `MallocSDK` class is the main interface for interacting with the Malloc Security SDK. It provides a variety of methods to perform security and privacy scans, such as detecting root access, spyware, suspicious apps, and dangerous files.
 
@@ -72,7 +72,7 @@ JSONObject scanForDeviceSpywareSync()
 
 Scan installed apps for spyware, dangerous permissions, and enabled accessibility services, see the [Scan Installed Apps](./scanApps.md) guide.
 
-### 🔍 Per-App Scanning (with updates)
+### Per-App Scanning (with updates)
 ```java
 void scanAppsPerAppAsync(
     @NonNull AppsScanningUpdatesCallback appsScanningUpdatesCallback,
@@ -81,7 +81,7 @@ void scanAppsPerAppAsync(
 )
 ```
 
-### 🧾 Summary Scanning (final result only)
+### Summary Scanning (final result only)
 ```java
 void scanAppsAsync(
     @NonNull ScanFinishedCallback callback,
@@ -98,13 +98,13 @@ Scan the device’s downloads folder for potentially malicious APKs, see the [Do
 
 > This operation is available in both **synchronous** and **asynchronous** versions (with callbacks).
 
-### 🔍 With progress updates
+### With progress updates
 ```java
 // Asynchronous
 void scanDownloadedFilesAsync(@NonNull FilesScanningUpdatesCallback callback)
 ```
 
-### ✅ Sync scan with progress callback
+### Sync scan with progress callback
 ```java
 // Synchronous
 JSONObject scanDownloadedFilesSync(FilesScanningUpdatesCallback callback)
@@ -114,21 +114,21 @@ JSONObject scanDownloadedFilesSync(FilesScanningUpdatesCallback callback)
 
 ## 🛠 Callback Interfaces
 
-### ✅ InitializationFinished
+### InitializationFinished
 ```java
 interface InitializationFinished {
     void onInitializationFinished(Boolean access_granted);
 }
 ```
 
-### 🧪 ScanFinishedCallback
+### ScanFinishedCallback
 ```java
 interface ScanFinishedCallback {
     void onScanFinished(JSONObject result);
 }
 ```
 
-### 📲 AppsScanningUpdatesCallback
+### AppsScanningUpdatesCallback
 ```java
 interface AppsScanningUpdatesCallback {
     void onScanFinished(JSONObject result);
@@ -138,7 +138,7 @@ interface AppsScanningUpdatesCallback {
 }
 ```
 
-### 📁 FilesScanningUpdatesCallback
+### FilesScanningUpdatesCallback
 ```java
 interface FilesScanningUpdatesCallback {
     void onScanFinished(JSONObject result);
@@ -150,7 +150,7 @@ interface FilesScanningUpdatesCallback {
 
 ---
 
-## 📌 Notes
+## Notes
 
 - **Async methods**: Ideal for UI-safe operations. Use callbacks to handle results.
 - **Sync methods**: Useful for background threads where immediate results are required. **Never use sync methods on the main/UI thread.**
