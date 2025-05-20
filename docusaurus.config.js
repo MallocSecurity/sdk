@@ -10,10 +10,11 @@ const config = {
   url: "https://Malloc-Tech.github.io",
   baseUrl: '/malloc-security-sdk.github.io/',
   organizationName: "Malloc-Tech",
-  projectName: 'malloc-docs',
+  projectName: 'malloc-security-sdk.github.io',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
-
+  deploymentBranch: 'gh-pages',
+  trailingSlash: false,
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
