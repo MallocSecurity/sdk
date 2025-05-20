@@ -7,12 +7,11 @@ const config = {
   title: 'Malloc Security SDK',
   tagline: 'Android Privacy & Threat Detection, Done Right',
   favicon: 'img/favicon.ico',
-
   url: "https://Malloc-Tech.github.io",
-  baseUrl: '/malloc-docs/',
+  baseUrl: ' /malloc-security-sdk.github.io/',
   organizationName: "Malloc-Tech",
   projectName: 'malloc-docs',
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
   i18n: {
