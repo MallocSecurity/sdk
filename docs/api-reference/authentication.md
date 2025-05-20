@@ -98,12 +98,12 @@ executorService.execute {
 executorService.shutdown()
 ```
 
-#### 💡 Why use ExecutorService?
+#### Why use ExecutorService?
 SDK initialization is performed off the main thread to avoid blocking the UI during app startup. This pattern ensures smooth launch performance without impacting user experience.
 
 ---
 
-### 💡 Which one should I use?
+### Which one should I use?
 
 | Method              | Thread-safe | Returns success? | Recommended for |
 |---------------------|-------------|------------------|------------------|
