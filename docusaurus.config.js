@@ -8,7 +8,7 @@ const config = {
   tagline: 'Android Privacy & Threat Detection, Done Right',
   favicon: 'img/favicon.ico',
   url: "https://Malloc-Tech.github.io",
-  baseUrl: '/',
+  baseUrl: '/malloc-security-sdk.github.io/',
   organizationName: "Malloc-Tech",
   projectName: 'malloc-security-sdk.github.io',
   onBrokenLinks: 'warn',
