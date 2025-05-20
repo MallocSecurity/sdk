@@ -8,7 +8,7 @@ The `MallocSDK` class is the main interface for interacting with the Malloc Secu
 
 These methods are used to initialize the SDK. For full usage instructions, see the [Initialization & Authentication](./authentication.md) guide.
 
-This operation is available in both **synchronous** and **asynchronous** versions (with callbacks).
+> This operation is available in both **synchronous** and **asynchronous** versions (with callbacks).
 
 ```java
 // Asynchronous
@@ -24,7 +24,7 @@ Boolean initializeSync(Context context, String key)
 
 Check whether the device is rooted. This includes various root indicators. See the [Root Check](./rootCheck.md) guide.
 
-This operation is available in both **synchronous** and **asynchronous** versions (with callbacks).
+> This operation is available in both **synchronous** and **asynchronous** versions (with callbacks).
 
 ```java
 // Asynchronous
@@ -40,7 +40,7 @@ static JSONObject rootCheckSync()
 
 Validate and categorize a domain by contacting Malloc's backend service, see the [URL Check](./checkURL.md) guide.
 
-This operation is available in both **synchronous** and **asynchronous** versions (with callbacks).
+> This operation is available in both **synchronous** and **asynchronous** versions (with callbacks).
 
 ```java
 // Asynchronous
@@ -56,7 +56,7 @@ JSONObject checkURLSync(String domain)
 
 Scan the device for signs that may indicate it is compromised by spyware, see the [Spyware Indicators Check](./scanForDeviceSpyware.md) guide.
 
-This operation is available in both **synchronous** and **asynchronous** versions (with callbacks).
+> This operation is available in both **synchronous** and **asynchronous** versions (with callbacks).
 
 ```java
 // Asynchronous
@@ -96,7 +96,7 @@ void scanAppsAsync(
 
 Scan the device’s downloads folder for potentially malicious APKs, see the [Downloaded Files Scan](./scanDownloadedFiles.md) guide.
 
-This operation is available in both **synchronous** and **asynchronous** versions (with callbacks).
+> This operation is available in both **synchronous** and **asynchronous** versions (with callbacks).
 
 ### 🔍 With progress updates
 ```java
