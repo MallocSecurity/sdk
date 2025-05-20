@@ -10,28 +10,18 @@ The **Malloc Security SDK** empowers Android developers to seamlessly integrate 
 
 ## 🛡️ Key Features
 
-- **Microphone & Camera Access Detection**
-- **Clipboard Monitoring**
-- **Device Threat Detection**
-- **Custom Security Alerts**
+- **URL check**
+- **Root Detection**
+- **Spyware apps detection**
+- **Download folder files chech**
 - **Minimal Permissions Required**
 - **Lightweight & Battery-Friendly**
-
-## ⚙️ How It Works
-
-The SDK hooks into Android system components using secure and efficient techniques to identify:
-
-- Suspicious app behavior
-- Hardware misuse (e.g., hidden mic access)
-- Data leaks and clipboard sniffers
-
-Once integrated, your app can monitor threats in real time and act accordingly — either by alerting users, restricting access, or logging threats for review.
 
 ## 🚀 Quickstart
 
 Start here: [Getting Started](./getting-started)
 
-Or jump to the [API Reference](./api-reference/scanDevice) if you're ready to code.
+Or jump to the [API Reference](./api-reference/authentication) if you're ready to code.
 
 ## 👥 Who It's For
 
