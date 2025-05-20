@@ -4,17 +4,17 @@ The Malloc SDK handles authentication internally and does not require client-sid
 
 ## 🔧 Initialization Setup
 
-To begin using `MallocSecuritySDK`, you must initialize it once in your `Application` class. This setup connects the SDK with your API key and prepares it for future security and privacy operations.
+To begin using `MallocSDK`, you must initialize it once in your `Application` class. This setup connects the SDK with your API key and prepares it for future security and privacy operations.
 
 In your `Application` class (`MyApplication.java` or `MyApplication.kt`), add the SDK initialization in the `onCreate()` method as shown below:
 
 ---
 
-### 🚀 Option 1: Asynchronous Initialization
+### Option 1: Asynchronous Initialization
 
 Use `initializeAsync()` to initialize the SDK in a background thread and receive a callback when the process completes. This is the recommended method, especially when API key verification is important before continuing execution.
 
-#### ✅ Java
+####  Java
 ```java
 import android.app.Application;
 import com.mallocprivacy.mallocsecuritysdk.MallocSDK;
@@ -40,7 +40,7 @@ public class MyApplication extends Application {
 }
 ```
 
-#### ✅ Kotlin
+####  Kotlin
 ```kotlin
 import android.app.Application
 import com.mallocprivacy.mallocsecuritysdk.MallocSDK
@@ -70,7 +70,7 @@ class MyApplication : Application() {
 
 Use `initializeSync()` if you need a simple and immediate boolean response to indicate whether initialization succeeded. This method blocks the thread, so **do not call it on the main/UI thread**.
 
-#### ✅ Java
+#### Java
 ```java
 ExecutorService executorService = Executors.newSingleThreadExecutor();
 executorService.execute(() -> {
@@ -84,7 +84,7 @@ executorService.execute(() -> {
 executorService.shutdown();
 ```
 
-#### ✅ Kotlin
+####  Kotlin
 ```kotlin
 val executorService = Executors.newSingleThreadExecutor()
 executorService.execute {
