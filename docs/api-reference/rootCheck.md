@@ -114,11 +114,12 @@ executor.shutdown();
 
 ---
 
-## Notes
+## Interpretation
 
 - `rooted_flag`: A high-level boolean flag indicating if the device appears to be rooted.
 - `root_check_results`: A list of all individual root checks performed, with their respective results and descriptions.
-- If `rooted_flag` is `true`, your app may choose to restrict certain actions or warn the user.
+- `issue_found`: A boolean indicating whether the check flagged something (true = suspicious, false = clean)
+- `check_description`: A short, readable explanation of what that check was about.
 
 ---
 
