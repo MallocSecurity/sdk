@@ -8,6 +8,7 @@ The **Malloc Security SDK** offers a comprehensive root detection feature that c
 
 ## ✅ Asynchronous Usage (Recommended)
 
+####  Java
 ```java
 MallocSDK.rootCheckAsync(new MallocSDK.ScanFinishedCallback() {
     @Override
@@ -23,6 +24,7 @@ MallocSDK.rootCheckAsync(new MallocSDK.ScanFinishedCallback() {
 
 > Do **not** call this on the main/UI thread.
 
+####  Java
 ```java
 ExecutorService executor = Executors.newSingleThreadExecutor();
 executor.execute(new Runnable() {
