@@ -6,7 +6,7 @@ The **Malloc Security SDK** offers a comprehensive root detection feature that c
 
 ---
 
-## ✅ Asynchronous Usage (Recommended)
+## Option 1: Asynchronous Usage
 
 ####  Java
 ```java
@@ -20,7 +20,7 @@ MallocSDK.rootCheckAsync(new MallocSDK.ScanFinishedCallback() {
 
 ---
 
-## ⚡ Synchronous Usage
+## Option 2: Synchronous Usage
 
 > Do **not** call this on the main/UI thread.
 
@@ -114,7 +114,7 @@ executor.shutdown();
 
 ---
 
-## 🧠 Notes
+## Notes
 
 - `rooted_flag`: A high-level boolean flag indicating if the device appears to be rooted.
 - `root_check_results`: A list of all individual root checks performed, with their respective results and descriptions.
@@ -122,7 +122,7 @@ executor.shutdown();
 
 ---
 
-## 🔒 Best Practices
+## Best Practices
 
 - Always perform root checks **after SDK initialization** is completed.
 - Use the **asynchronous** version for better UI performance.
