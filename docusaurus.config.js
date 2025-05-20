@@ -8,7 +8,7 @@ const config = {
   tagline: 'Android Privacy & Threat Detection, Done Right',
   favicon: 'img/favicon.ico',
   url: "https://Malloc-Tech.github.io",
-  baseUrl: '/malloc-security-sdk.github.io/',
+  baseUrl: '/',
   organizationName: "Malloc-Tech",
   projectName: 'malloc-security-sdk.github.io',
   onBrokenLinks: 'warn',
@@ -29,7 +29,7 @@ const config = {
           path: 'docs',
           routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: 'https://github.com/mallocprivacy/malloc-security-sdk-docs/edit/main/',
+          editUrl: 'https://github.com/Malloc-Tech/malloc-security-sdk.github.io/edit/main/',
         },
         blog: false, // ⛔ Turned off blogging since not used
         theme: {
@@ -58,7 +58,7 @@ const config = {
             },
 
             {
-              href: 'https://github.com/mallocprivacy/malloc-security-sdk-docs',
+              href: 'https://github.com/Malloc-Tech/malloc-security-sdk.github.io/',
               label: 'GitHub',
               position: 'right',
             },
