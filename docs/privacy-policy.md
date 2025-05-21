@@ -1,6 +1,6 @@
 # Privacy Policy
 
-#Privacy and Security Policy: Malloc Security SDK Integration
+# Privacy and Security Policy: Malloc Security SDK Integration
 
 **Company Name** ("we", "our", or "us") integrates the Malloc Security SDK provided by Malloc Limited (Cyprus) to enhance app security and provided functionality.
 
