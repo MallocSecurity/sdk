@@ -28,6 +28,7 @@ MallocSDK.scanForDeviceSpywareAsync(new MallocSDK.ScanFinishedCallback() {
 #### Java
 
 ```java
+ExecutorService executor = Executors.newSingleThreadExecutor();
 executor.execute(new Runnable() {
     @Override
     public void run() {
