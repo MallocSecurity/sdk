@@ -94,6 +94,8 @@ executor.execute(new Runnable() {
 * `detected_by`: List of antivirus engines and detection info.
 * `scan_time`: Time of scan, if available.
 
+> If any of the fields above do not have a corresponding value for a scanned APK, the value will be an empty string "" in the result JSON.
+
 ---
 
 ## ✅ Best Practices
