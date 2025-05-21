@@ -123,7 +123,7 @@ executor.shutdown();
 
 The `status` field in the returned JSON indicates the result of the operation. Possible values include:
 * "success" – The operation completed successfully and the result contains valid data.
-* `failed_sdk_not_initialized` – The SDK was not initialized before the function was called. Ensure `MallocSDK.init()` has been invoked.
+* `failed_sdk_not_initialized` – The SDK was not initialized before the function was called. Ensure MallocSDK has been initialised.
 * `failed_access_forbidden` – The operation was blocked, possibly due to missing permissions or restricted access.
 * `failed_no_internet_connection` – The device has no active internet connection, which is required to perform the scan.
 * `error` – A general error occurred during the operation (e.g., unexpected exception or parsing failure).
