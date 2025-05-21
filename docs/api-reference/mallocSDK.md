@@ -108,16 +108,12 @@ Scan the device’s downloads folder for potentially malicious APKs, see the [Do
 
 > This operation is available in both **synchronous** and **asynchronous** versions (with callbacks).
 
-### With progress updates
 ```java
-// Asynchronous
+// Asynchronous with progress updates
 void scanDownloadedFilesAsync(@NonNull FilesScanningUpdatesCallback callback)
-```
 
-### Sync scan with progress callback
-```java
-// Synchronous
-JSONObject scanDownloadedFilesSync(FilesScanningUpdatesCallback callback)
+// Synchronous 
+JSONObject scanDownloadedFilesSync()
 ```
 
 ---
