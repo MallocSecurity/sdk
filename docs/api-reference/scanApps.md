@@ -65,6 +65,9 @@ MallocSDK.AppsScanningUpdatesCallback appsScanningUpdatesCallback = new MallocSD
 MallocSDK.scanAppsPerAppAsync(appsScanningUpdatesCallback, false, false);
 ```
 
+ApplicationInfo API reference: https://developer.android.com/reference/android/content/pm/ApplicationInfo
+
+
 ---
 
 ## Option 2: Async Scan (Final Result Only)
