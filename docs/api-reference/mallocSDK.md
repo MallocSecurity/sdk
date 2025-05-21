@@ -116,6 +116,19 @@ void scanDownloadedFilesAsync(@NonNull FilesScanningUpdatesCallback callback)
 JSONObject scanDownloadedFilesSync()
 ```
 
+### Permissions Required
+
+Before scanning files, the appropriate permission must be granted based on the Android version. This method handles prompting the user for the required permissions.
+
+```java
+void requestFilesScannerPermission(Activity activity)
+```
+
+* For devices running **Android R (API level 30)** and above, this prompts the user for `android.permission.MANAGE_EXTERNAL_STORAGE` permission.
+* For devices running **below Android R**, it requests `android.permission.READ_EXTERNAL_STORAGE`.
+
+> This permission is essential for enabling the **File Scanning** feature in the SDK.
+
 ---
 
 ## 🛠 Callback Interfaces
