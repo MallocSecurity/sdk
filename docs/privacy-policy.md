@@ -1,4 +1,8 @@
 # Privacy Policy
+---
+You can use the following Section in your Privacy Policy to disclose the use of Malloc Security SDK in your mobile app.
+
+---
 
 # Privacy and Security Policy: Malloc Security SDK Integration
 
