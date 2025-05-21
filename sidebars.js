@@ -33,14 +33,14 @@ const sidebars = {
         // Add more files as needed
       ],
     },
-    {
+   /* {
       type: 'category',
       label: 'Examples',
       items: [
         'examples/android-kotlin',
         'examples/android-java',
       ],
-    },
+    },*/
     {
       type: 'doc',
       id: 'troubleshooting',
