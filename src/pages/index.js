@@ -2,42 +2,92 @@ import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
-import HomepageFeatures from '@site/src/components/HomepageFeatures';
-
 import Heading from '@theme/Heading';
 import styles from './index.module.css';
 
 function HomepageHeader() {
-  const {siteConfig} = useDocusaurusContext();
-  return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
-      <div className="container">
-        <Heading as="h1" className="hero__title">
-          {siteConfig.title}
-        </Heading>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <div className={styles.buttons}>
-          <Link
-            className="button button--secondary button--lg"
-            to="/docs/intro">
-            Docusaurus Tutorial - 5min ⏱️
-          </Link>
-        </div>
-      </div>
-    </header>
-  );
+    const { siteConfig } = useDocusaurusContext();
+    return (
+        <header className={clsx('hero', styles.heroBanner)}>
+            <div className="container">
+                <div className={styles.heroContent}>
+                    <div className={styles.heroText}>
+                        <Heading as="h1" className={clsx('hero__title', styles.heroTitle)}>
+                            {siteConfig.title}
+                        </Heading>
+                        <p className={clsx('hero__subtitle', styles.heroSubtitle)}>
+                            Malloc Security SDK is a powerful Android library that helps developers integrate
+                            real-time mobile protection into their apps.
+                        </p>
+
+                        <div className={styles.buttons}>
+                            <Link className={styles.heroButton} to="/sdk/intro">
+                                Get Started
+                            </Link>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+    );
+}
+
+const sdkFeatures = [
+    {
+        title: 'Suspicious URL Check',
+        imgUrl: 'https://www.svgrepo.com/show/353719/link-security.svg',
+        description: 'Detect phishing or malicious links in real time.',
+    },
+    {
+        title: 'Root Detection',
+        imgUrl: 'https://www.svgrepo.com/show/353712/hacker.svg',
+        description: 'Identify rooted or compromised devices.',
+    },
+    {
+        title: 'Spyware Apps Detection',
+        imgUrl: 'https://www.svgrepo.com/show/304433/spy.svg',
+        description: 'Scan for spyware and suspicious applications.',
+    },
+    {
+        title: 'Malware File Checker',
+        imgUrl: 'https://www.svgrepo.com/show/374144/bug.svg',
+        description: 'Analyze APKs and files for malware signatures.',
+    },
+
+];
+
+function SDKIntroSection() {
+    return (
+        <section className={styles.sdkIntro}>
+            <div className="container">
+
+
+                <div className={styles.featuresGrid}>
+                    {sdkFeatures.map((feature, idx) => (
+                        <div key={idx} className={styles.featureCard}>
+                            <img src={feature.imgUrl} alt={feature.title} className={styles.featureIcon} />
+                            <h3 className={styles.featureTitle}>{feature.title}</h3>
+                            <p className={styles.featureDescription}>{feature.description}</p>
+                        </div>
+                    ))}
+                </div>
+
+            </div>
+        </section>
+    );
 }
 
 export default function Home() {
-  const {siteConfig} = useDocusaurusContext();
-  return (
-    <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
-      <HomepageHeader />
-      <main>
-        <HomepageFeatures />
-      </main>
-    </Layout>
-  );
+    const { siteConfig } = useDocusaurusContext();
+    return (
+        <Layout
+            title={`Hello from ${siteConfig.title}`}
+            description="Privacy-first Android SDK for mobile app security.">
+            <HomepageHeader />
+            <main>
+                <SDKIntroSection />
+            </main>
+        </Layout>
+    );
 }

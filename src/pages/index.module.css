@@ -1,23 +1,148 @@
-/**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
- */
-
 .heroBanner {
+  background: black;
+  color: white;
   padding: 4rem 0;
   text-align: center;
-  position: relative;
-  overflow: hidden;
+  border-radius: 0 0 2rem 2rem;
 }
 
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
-  }
+.heroTitle {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.heroSubtitle {
+  font-size: 1.25rem;
+  margin-top: 1rem;
+  opacity: 0.85;
 }
 
 .buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin-top: 2rem;
 }
+
+
+a:hover {
+  color: black;
+  transition: color 0.3s ease;
+}
+
+.heroButton {
+  background-color: #00c9a7;
+  color: white;
+  padding: 0.75rem 2rem;
+  border-radius: 2rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s ease;
+  display: inline-block;
+}
+
+.heroButton:hover {
+  background-color: #23caaa;
+}
+
+.sdkIntro {
+  padding: 3rem 1rem;
+
+  text-align: center;
+}
+
+.sdkHeading {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.sdkDescription {
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto 1.5rem auto;
+  color: #444;
+}
+
+.sdkList {
+  list-style: none;
+  padding: 0;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.sdkList li {
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+  color: #333;
+}
+.sdkIntro {
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.sdkHeading {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.sdkDescription {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.featureCard {
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease;
+}
+
+.featureCard:hover {
+  transform: translateY(-5px);
+}
+
+.featureIcon {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 1rem;
+}
+
+.featureTitle {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.featureDescription {
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.sdkButtonWrapper {
+  margin-top: 2.5rem;
+}
+
+.sdkButton {
+  padding: 0.8rem 2rem;
+  background-color: #000002;
+  color: white;
+  border-radius: 8px;
+  font-size: 1rem;
+  text-decoration: none;
+}
+.featureCard {
+  border: 4px solid #00c9a7; /* Use the same color as the heroButton background */
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: box-shadow 0.3s ease;
+}
+
+.featureCard:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+

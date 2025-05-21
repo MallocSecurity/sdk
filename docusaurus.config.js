@@ -76,7 +76,8 @@ const config = {
                 },
                 {
                   label: 'API Reference',
-                  to: '/api-reference/scanDevice',
+                  to: '/api-reference/mallocSDK',
+
                 },
               ],
             },

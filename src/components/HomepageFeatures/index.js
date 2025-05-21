@@ -17,30 +17,36 @@ const FeatureList = [
         imgUrl: 'https://www.svgrepo.com/show/309535/privacy-shield.svg',
         description: (
             <>
-                Malloc processes everything on-device. No data leaves the user’s phone, ensuring privacy and compliance by design.
+                We process the majority of data directly on the device. We do not collect personal data, and we do not store any user information—ensuring maximum privacy by design.
             </>
         ),
     },
     {
-        title: 'Protect Your App',
+        title: 'Offer Security to Your Users',
         imgUrl: 'https://www.svgrepo.com/show/303251/shield-security.svg',
         description: (
             <>
-                Detect root access, emulator environments, VPNs, and network attacks in real-time to protect your app from threats.
+                Build security-first mobile experiences with:
+                <ul style={{ textAlign: 'left', marginTop: '0.5rem' }}>
+                    <li>🔗 Suspicious URL check</li>
+                    <li>📱 Root Detection</li>
+                    <li>🕵️ Spyware apps detection</li>
+                    <li>🦠 Malware scanning for files & APKs</li>
+                    <li>🔐 Minimal permissions required</li>
+                    <li>⚡ Lightweight & battery-friendly</li>
+                </ul>
             </>
         ),
     },
 ];
 
-function Feature({imgUrl, title, description}) {
+function Feature({ imgUrl, title, description }) {
     return (
-        <div className={clsx('col col--4')}>
-            <div className="text--center">
-                <img className={styles.featureSvg} src={imgUrl} alt={title} style={{ height: 120 }} />
-            </div>
-            <div className="text--center padding-horiz--md">
-                <Heading as="h3">{title}</Heading>
-                <p>{description}</p>
+        <div className={clsx('col col--4', styles.featureCard)}>
+            <div className={styles.featureContent}>
+                <img src={imgUrl} alt={title} className={styles.featureIcon} />
+                <Heading as="h3" className={styles.featureTitle}>{title}</Heading>
+                <div className={styles.featureDescription}>{description}</div>
             </div>
         </div>
     );
