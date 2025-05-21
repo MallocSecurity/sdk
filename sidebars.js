@@ -20,8 +20,16 @@ const sidebars = {
       type: 'category',
       label: 'API Reference',
       items: [
+        'api-reference/mallocSDK',
         'api-reference/authentication',
-        'api-reference/encryption',
+        'api-reference/rootCheck',
+        'api-reference/checkURL',
+        'api-reference/scanForDeviceSpyware',
+        'api-reference/scanApps',
+        'api-reference/scanDownloadedFiles',
+        'api-reference/scanDevice',
+
+
         // Add more files as needed
       ],
     },
