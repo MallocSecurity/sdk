@@ -36,22 +36,22 @@ function HomepageHeader() {
 const sdkFeatures = [
     {
         title: 'Suspicious URL Check',
-        imgUrl: 'https://www.svgrepo.com/show/353719/link-security.svg',
+        imgUrl: './img/1.svg',
         description: 'Detect phishing or malicious links in real time.',
     },
     {
         title: 'Root Detection & Device Scan',
-        imgUrl: 'https://www.svgrepo.com/show/353712/hacker.svg',
+        imgUrl: './img/2.svg',
         description: 'Identify rooted or compromised devices and check for spyware.',
     },
     {
         title: 'Spyware Apps Detection',
-        imgUrl: 'https://www.svgrepo.com/show/304433/spy.svg',
+        imgUrl: './img/3.svg',
         description: 'Scan for spyware and suspicious applications.',
     },
     {
         title: 'Malware File Checker',
-        imgUrl: 'https://www.svgrepo.com/show/374144/bug.svg',
+        imgUrl: './img/4.svg',
         description: 'Analyze APKs and files for malware signatures.',
     },
 
