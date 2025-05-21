@@ -26,8 +26,8 @@ const sidebars = {
         'api-reference/checkURL',
         'api-reference/scanForDeviceSpyware',
         'api-reference/scanApps',
-        'api-reference/scanDownloadedFiles',
-        'api-reference/scanDevice',
+        'api-reference/scanDownloadedFiles'
+
 
 
         // Add more files as needed
