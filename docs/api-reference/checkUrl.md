@@ -1,6 +1,6 @@
 # 🌐 URL Category Check
 
-The **Malloc Security SDK** provides a mechanism to check and categorize URLs by contacting the Malloc backend service. This can help your application detect and respond to potentially harmful domains.
+The **Malloc Security SDK** provides a mechanism to check and categorize URLs by contacting the Malloc backend service via an API. This can help your application detect and respond to potentially harmful domains.
 
 > This operation is available in both synchronous and asynchronous versions (with callbacks).
 
