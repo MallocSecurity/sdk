@@ -56,7 +56,7 @@ JSONObject checkURLSync(String domain)
 
 ---
 
-## 🕵️‍♀️ Spyware Detection
+## 🕵️ Spyware Indicators Check
 
 Scan the device for signs that may indicate it is compromised by spyware, see the [Spyware Indicators Check](./scanForDeviceSpyware.md) guide.
 
@@ -76,19 +76,25 @@ JSONObject scanForDeviceSpywareSync()
 
 Scan installed apps for spyware, dangerous permissions, and enabled accessibility services, see the [Scan Installed Apps](./scanApps.md) guide.
 
-### Per-App Scanning (with updates)
+> This operation is available in both **synchronous** and **asynchronous** versions (with callbacks).
+
 ```java
+// Per-App Scanning (Asynchronous with updates)
 void scanAppsPerAppAsync(
     @NonNull AppsScanningUpdatesCallback appsScanningUpdatesCallback,
     boolean include_system_apps,
     boolean include_apps_with_no_internet_access
 )
-```
 
-### Summary Scanning (final result only)
-```java
+// Summary Scanning (Asynchronous with final result only)
 void scanAppsAsync(
     @NonNull ScanFinishedCallback callback,
+    boolean include_system_apps,
+    boolean include_apps_with_no_internet_access
+)
+
+// Summary Scanning (Synchronous)
+JSONObject scanAppsPerScanSync(
     boolean include_system_apps,
     boolean include_apps_with_no_internet_access
 )
