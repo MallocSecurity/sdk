@@ -12,8 +12,9 @@ The **Malloc Security SDK** empowers Android developers to seamlessly integrate 
 
 - **Suspicious URL check**
 - **Root Detection**
-- **Spyware apps detection**
-- **Check files and apks for malwarek**
+- **Spyware Indicators detection**
+- **Apps Scanning**
+- **Check downloaded files and apks for malware**
 - **Minimal Permissions Required**
 - **Lightweight & Battery-Friendly**
 

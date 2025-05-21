@@ -29,7 +29,7 @@ const FeatureList = [
                 Build security-first mobile experiences with:
                 <ul style={{ textAlign: 'left', marginTop: '0.5rem' }}>
                     <li>🔗 Suspicious URL check</li>
-                    <li>📱 Root Detection</li>
+                    <li>📱 Root Detection & Device Scan</li>
                     <li>🕵️ Spyware apps detection</li>
                     <li>🦠 Malware scanning for files & APKs</li>
                     <li>🔐 Minimal permissions required</li>

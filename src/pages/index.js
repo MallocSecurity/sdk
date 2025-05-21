@@ -40,9 +40,9 @@ const sdkFeatures = [
         description: 'Detect phishing or malicious links in real time.',
     },
     {
-        title: 'Root Detection',
+        title: 'Root Detection & Device Scan',
         imgUrl: 'https://www.svgrepo.com/show/353712/hacker.svg',
-        description: 'Identify rooted or compromised devices.',
+        description: 'Identify rooted or compromised devices and check for spyware.',
     },
     {
         title: 'Spyware Apps Detection',
