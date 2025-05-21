@@ -23,7 +23,7 @@ const sidebars = {
         'api-reference/mallocSDK',
         'api-reference/authentication',
         'api-reference/rootCheck',
-        'api-reference/checkUrl',
+        'api-reference/checkURL',
         'api-reference/scanForDeviceSpyware',
         'api-reference/scanApps',
         'api-reference/scanDownloadedFiles'
