@@ -1,13 +1,12 @@
 # MallocSDK Class Reference
-
-The `MallocSDK` class is the main interface for interacting with the Malloc Security SDK. It provides a variety of methods to perform security and privacy scans, such as detecting root access, spyware, suspicious apps, and dangerous files.
-
 ---
 
 Here we provide a quick overview of the methods.
 You can find an extensive description and usage guide for each method in sub-guides provided.
 
 ---
+
+The `MallocSDK` class is the main interface for interacting with the Malloc Security SDK. It provides a variety of methods to perform security and privacy scans, such as detecting root access, spyware, suspicious apps, and dangerous files.
 
 ## 🧩 Initialization
 

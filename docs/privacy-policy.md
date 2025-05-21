@@ -10,7 +10,7 @@
 The SDK enables:
 - **Malware/spyware scanning** (on-device detection)
 - **Root/jailbroken device detection** (on-device detection)
-- **Apps and Files malware detection (SHA classification)
+- **Apps and Files malware detection** (SHA classification)
 - **URL/IP reputation checks** (domain-level threat analysis)
 
 ---
