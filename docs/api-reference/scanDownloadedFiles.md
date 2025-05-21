@@ -96,6 +96,18 @@ executor.execute(new Runnable() {
 
 > If any of the fields above do not have a corresponding value for a scanned APK, the value will be an empty string "" in the result JSON.
 
+
+
+The `status` field in the returned JSON indicates the result of the operation. Possible values include:
+* `success` – The operation completed successfully and the result contains valid data.
+* `failed_sdk_not_initialized` – The SDK was not initialized before the function was called. Ensure MallocSDK has been initialised.
+* `failed_access_forbidden` – The operation was blocked, possibly due to missing permissions or restricted access.
+* `failed_no_internet_connection` – The device has no active internet connection, which is required to perform the scan.
+* `error` – A general error occurred during the operation (e.g., unexpected exception or parsing failure).
+
+> These status strings are defined as final constants in the [MallocSdkResponseJson](./mallocSdkResponseJson.md) class.
+
+
 ---
 
 ## ✅ Best Practices
@@ -103,4 +115,4 @@ executor.execute(new Runnable() {
 * Always initiate scanning **after SDK initialization** is complete.
 * Use the asynchronous method for better UI responsiveness.
 * Consider warning users or restricting APK installation if `is_malicious` is `true`.
-
+* Always check the status field before relying on other content within the JSON.
