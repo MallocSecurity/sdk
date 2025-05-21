@@ -1,7 +1,6 @@
-# 🧩 Initialization & Authentication
+# 🧩 Initialization
 
-The Malloc SDK handles authentication internally and does not require client-side token management. To start using its features, simply initialize the SDK once in your application's Application class.
-
+To start using the Malloc SDK features, you will need to initialize the SDK in your application's Application class using the API key that was provided to you.
 ## 🔧 Initialization Setup
 
 To begin using `MallocSDK`, you must initialize it once in your `Application` class. This setup connects the SDK with your API key and prepares it for future security and privacy operations.
