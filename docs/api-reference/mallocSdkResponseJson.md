@@ -29,7 +29,7 @@ public class MallocSdkResponseJson extends JSONObject {
 
 ---
 
-## ✅ Status Constants
+## Status Constants
 
 These predefined `String` constants represent all possible outcomes of an SDK operation:
 
