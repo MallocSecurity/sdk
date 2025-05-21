@@ -9,7 +9,7 @@ function HomepageHeader() {
     const { siteConfig } = useDocusaurusContext();
     return (
         <header className={clsx('hero', styles.heroBanner)}>
-            <link rel="icon" href="https://malloc-tech.github.io/sdk/favicon.ico?v=2"/>
+            <link rel="icon" href="https:/mallocsecurity.github.io/sdk/favicon.ico?v=2"/>
             <div className="container">
                 <div className={styles.heroContent}>
                     <div className={styles.heroText}>

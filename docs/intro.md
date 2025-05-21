@@ -39,7 +39,7 @@ Malloc is a trusted name in mobile privacy. We’ve helped millions of users sta
 
 ## 📬 Support
 
-Need help or have questions? Reach out at [support@mallocprivacy.com](mailto:support@mallocprivacy.com) or visit our [GitHub](https://github.com/Malloc-Tech/sdk).
+Need help or have questions? Reach out at [support@mallocprivacy.com](mailto:support@mallocprivacy.com) or visit our [GitHub](https://github.com/mallocsecurity/sdk).
 
 ---
 

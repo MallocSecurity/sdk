@@ -12,7 +12,7 @@
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "predeploy": "npm run build",
-    "deploy": "GIT_USER=Malloc-Tech USE_SSH=true npm run docusaurus deploy"
+    "deploy": "GIT_USER=mallocsecurity USE_SSH=true npm run docusaurus deploy"
 
   },
   "dependencies": {
