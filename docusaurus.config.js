@@ -29,7 +29,7 @@ const config = {
           path: 'docs',
           routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: 'https://github.com/mallocsecurity/sdk/edit/main/',
+          editUrl: 'https://github.com/mallocsecurity/sdk/edit/website/',
         },
         blog: false, // ⛔ Turned off blogging since not used
         theme: {
