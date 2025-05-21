@@ -68,7 +68,7 @@ class MyApplication : Application() {
 
 ### Option 2: Synchronous Initialization
 
-Use `initializeSync()` if you need a simple and immediate boolean response to indicate whether initialization succeeded. This method blocks the thread, so **do not call it on the main/UI thread**.
+Use `MallocSDK.initializeSync()` if you need a simple and immediate boolean response to indicate whether initialization succeeded. This method blocks the thread, so **do not call it on the main/UI thread**.
 
 #### Java
 ```java
