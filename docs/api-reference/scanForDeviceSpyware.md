@@ -6,7 +6,7 @@ The **Malloc Security SDK** provides a powerful feature to scan for device-level
 
 ---
 
-## 🚀 Option 1: Asynchronous Usage
+## Option 1: Asynchronous Usage
 
 #### Java
 
@@ -21,7 +21,7 @@ MallocSDK.scanForDeviceSpywareAsync(new MallocSDK.ScanFinishedCallback() {
 
 ---
 
-## ⚡ Option 2: Synchronous Usage
+## Option 2: Synchronous Usage
 
 > Do **not** call this on the main/UI thread.
 
@@ -78,10 +78,19 @@ executor.execute(new Runnable() {
 
 ## Interpretation
 
-* **spyware\_name**: The name of the detected spyware family (e.g., NSO, Cytrox).
-* **detections**: A list of suspicious indicators including files and directories linked to spyware presence.
-* **type**: Type of detection (`FILE_CHECK`, `DIRECTORY_CHECK`, `SERVICE_CHECK`).
-* **description**: A human-readable path or artifact associated with the spyware.
+* `spyware_name`: The name of the detected spyware family (e.g., NSO, Cytrox).
+* `detections`: A list of suspicious indicators including files and directories linked to spyware presence.
+* `type`: Type of detection (`FILE_CHECK`, `DIRECTORY_CHECK`, `SERVICE_CHECK`).
+* `description`: A human-readable path or artifact associated with the spyware.
+
+The `status` field in the returned JSON indicates the result of the operation. Possible values include:
+* `success` – The operation completed successfully and the result contains valid data.
+* `failed_sdk_not_initialized` – The SDK was not initialized before the function was called. Ensure MallocSDK has been initialised.
+* `failed_access_forbidden` – The operation was blocked, possibly due to missing permissions or restricted access.
+* `failed_no_internet_connection` – The device has no active internet connection, which is required to perform the scan.
+* `error` – A general error occurred during the operation (e.g., unexpected exception or parsing failure).
+
+> These status strings are defined as final constants in the [MallocSdkResponseJson](./mallocSdkResponseJson.md) class.
 
 ---
 
@@ -89,3 +98,4 @@ executor.execute(new Runnable() {
 
 * Run this scan after SDK initialization.
 * Use the asynchronous version to avoid blocking the UI.
+* Always check the status field before relying on other content within the JSON.
