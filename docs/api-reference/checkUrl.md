@@ -54,7 +54,7 @@ executor.shutdown();
 
 ---
 
-## Possible Categories
+## Detected Categories
 
 | Category      | Description                                |
 |---------------|--------------------------------------------|

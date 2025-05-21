@@ -4,6 +4,11 @@ The `MallocSDK` class is the main interface for interacting with the Malloc Secu
 
 ---
 
+Here we provide a quick overview of the methods.
+You can find an extensive description and usage guide for each method in sub-guides provided.
+
+---
+
 ## 🧩 Initialization
 
 These methods are used to initialize the SDK. For full usage instructions, see the [Initialization & Authentication](./authentication.md) guide.
