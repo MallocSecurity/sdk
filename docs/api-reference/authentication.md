@@ -12,7 +12,7 @@ In your `Application` class (`MyApplication.java` or `MyApplication.kt`), add th
 
 ### Option 1: Asynchronous Initialization
 
-Use `initializeAsync()` to initialize the SDK in a background thread and receive a callback when the process completes. This is the recommended method, especially when API key verification is important before continuing execution.
+Use `MallocSDK.initializeAsync()` to initialize the SDK in a background thread and receive a callback when the process completes. This is the recommended method, especially when API key verification is important before continuing execution.
 
 ####  Java
 ```java
