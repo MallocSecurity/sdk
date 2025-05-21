@@ -36,7 +36,7 @@ MallocSDK.scanDownloadedFilesAsync(new MallocSDK.FilesScanningUpdatesCallback() 
 });
 ```
 
-The **FileToScan** Class represents a file that is queued for scanning and it contains the display name of the file and the Uri reference pointing to the file's location on the device. See more in [FilesToScan](./filesToScan.md).
+The **FileToScan** Class represents a file that is queued for scanning and it contains the display name of the file and the Uri reference pointing to the file's location on the device. See more in [FilesToScan](./fileToScan.md).
 
 ---
 
