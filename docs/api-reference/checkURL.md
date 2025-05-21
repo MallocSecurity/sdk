@@ -54,17 +54,27 @@ executor.shutdown();
 
 ---
 
-## Possible Categories
+## Interpretation
+- `category`: The category of the URL. The possible categories are:
 
-| Category      | Description                                |
-|---------------|--------------------------------------------|
-| `"other"`     | Uncategorized or unrecognized domain       |
-| `"spyware"`   | Associated with spyware                    |
-| `"porn"`      | Adult or pornographic content              |
-| `"coinmining"`| Used for crypto mining activities          |
-| `"phishing"`  | Known phishing or scam domains             |
-| `"ads"`       | Used for ads or tracking                   |
-| `"http"`      | Unencrypted (HTTP) domain                  |
+    | Category      | Description                                |
+    |---------------|--------------------------------------------|
+    | `"other"`     | Uncategorized or unrecognized domain       |
+    | `"spyware"`   | Associated with spyware                    |
+    | `"porn"`      | Adult or pornographic content              |
+    | `"coinmining"`| Used for crypto mining activities          |
+    | `"phishing"`  | Known phishing or scam domains             |
+    | `"ads"`       | Used for ads or tracking                   |
+
+    
+The `status` field in the returned JSON indicates the result of the operation. Possible values include:
+* "success" – The operation completed successfully and the result contains valid data.
+* `failed_sdk_not_initialized` – The SDK was not initialized before the function was called. Ensure MallocSDK has been initialised.
+* `failed_access_forbidden` – The operation was blocked, possibly due to missing permissions or restricted access.
+* `failed_no_internet_connection` – The device has no active internet connection, which is required to perform the scan.
+* `error` – A general error occurred during the operation (e.g., unexpected exception or parsing failure).
+
+> These status strings are defined as final constants in the [MallocSdkResponseJson](./mallocSdkResponseJson.md) class.
 
 ---
 
@@ -72,3 +82,6 @@ executor.shutdown();
 
 - Always perform URL checks after the SDK has been properly initialized.
 - Use the asynchronous version in UI components to avoid blocking the main thread.
+- Always check the status field before relying on other content within the JSON.
+
+  
