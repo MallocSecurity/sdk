@@ -121,9 +121,19 @@ executor.shutdown();
 - `issue_found`: A boolean indicating whether the check flagged something (true = suspicious, false = clean)
 - `check_description`: A short, readable explanation of what that check was about.
 
+The `status` field in the returned JSON indicates the result of the operation. Possible values include:
+* "success" – The operation completed successfully and the result contains valid data.
+* `failed_sdk_not_initialized` – The SDK was not initialized before the function was called. Ensure `MallocSDK.init()` has been invoked.
+* `failed_access_forbidden` – The operation was blocked, possibly due to missing permissions or restricted access.
+* `failed_no_internet_connection` – The device has no active internet connection, which is required to perform the scan.
+* `error` – A general error occurred during the operation (e.g., unexpected exception or parsing failure).
+
+> These status strings are defined as final constants in the [MallocSdkResponseJson](./mallocSdkResponseJson.md) class.
+      
 ---
 
 ## ✅ Best Practices
 
 - Always perform root checks **after SDK initialization** is completed.
 - Use the **asynchronous** version for better UI performance.
+- Always check the status field before relying on other content within the JSON.
