@@ -145,6 +145,15 @@ executor.execute(new Runnable() {
 * `app_permissions`: A breakdown of dangerous permissions granted per app.
 * `packages_with_enabled_accessibility_services`: Apps using accessibility services, often abused by spyware or intrusive apps.
 
+The `status` field in the returned JSON indicates the result of the operation. Possible values include:
+* `success` – The operation completed successfully and the result contains valid data.
+* `failed_sdk_not_initialized` – The SDK was not initialized before the function was called. Ensure MallocSDK has been initialised.
+* `failed_access_forbidden` – The operation was blocked, possibly due to missing permissions or restricted access.
+* `failed_no_internet_connection` – The device has no active internet connection, which is required to perform the scan.
+* `error` – A general error occurred during the operation (e.g., unexpected exception or parsing failure).
+
+> These status strings are defined as final constants in the [MallocSdkResponseJson](./mallocSdkResponseJson.md) class.
+      
 ---
 
 ## ✅ Best Practices
@@ -152,5 +161,6 @@ executor.execute(new Runnable() {
 * Run this scan after SDK initialization.
 * Prefer the async versions for better performance and smoother UI experience.
 * Use `scanAppsPerAppAsync` if you want fine-grained progress feedback.
+* Always check the status field before relying on other content within the JSON.
 
   
