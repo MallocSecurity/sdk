@@ -6,7 +6,7 @@ import { themes as prismThemes } from 'prism-react-renderer';
 const config = {
   title: 'Malloc Security SDK',
   tagline: 'Android Privacy & Threat Detection, Done Right',
-  favicon: 'img/favicon.ico',
+  favicon: '/sdk/img/favicon.ico',
   url: "https://Malloc-Tech.github.io",
   baseUrl: '/sdk/',
   organizationName: "Malloc-Tech",
