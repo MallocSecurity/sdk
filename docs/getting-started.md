@@ -8,6 +8,8 @@ This SDK empowers your app with advanced threat detection, safeguarding user pri
 - Android 9.0 (API level 28) or higher
 - Internet permission (for URL and SHA checking)
 - External storage permission (for Downloads folder scanning)
+- You will need the mallocSecuritySdkAuthToken and the api-key that are provided to you upon subscription.
+  (contact us at support@mallocprivacy.com if yuo dont have them)
 
 ## What’s Inside?
 

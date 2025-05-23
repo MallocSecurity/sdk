@@ -2,9 +2,31 @@
 
 Follow these steps to integrate the Malloc Security SDK into your Android project.
 
+You will need the mallocSecuritySdkAuthToken which is provided to you.
 ## 1. Add the SDK
 
-Coming soon via Maven/Gradle. For now, manually include the AAR file:
+### 1. SDK Integration
+
+#### Modify `settings.gradle`:
 
 ```groovy
-implementation files('libs/malloc-security-sdk.aar')
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            url "https://jitpack.io"
+            credentials { username mallocSecuritySdkAuthToken }
+        }
+    }
+}
+```
+
+#### Add dependency in `build.gradle (app)`:
+
+```groovy
+dependencies {
+    implementation 'com.gitlab.devmalloc:malloc-security-sdk-android:0.1.0'
+}
+```
