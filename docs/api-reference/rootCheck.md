@@ -2,8 +2,7 @@
 
 The **Malloc Security SDK** offers a comprehensive root detection feature that checks for common indicators of a rooted device. This includes known rooting binaries, packages, superuser access, and modified security properties.
 
-> This operation is available in both synchronous and asynchronous versions (with callbacks).
-
+> ⚠️⚠️ This function is not yet available in version 0.1.X
 ---
 
 ## Option 1: Asynchronous Usage
