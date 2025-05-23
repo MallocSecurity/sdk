@@ -1,0 +1,17 @@
+rootProject.name = "MallocSecuritySDKJava"
+
+include ':app'
+
+//include ':malloc-security-sdk-android' // MallocSecuritySDK test
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            url "https://jitpack.io"
+            credentials { username mallocSecuritySdkAuthToken }
+        }
+    }
+}
