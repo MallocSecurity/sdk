@@ -18,7 +18,7 @@ This is a sample Android project that demonstrates the usage of the **[Malloc Se
 ## 📸 Screenshots
 | Main UI | 
 |---------|
-| ![Main UI](image.png)|
+| ![Main UI](Screenshot_20250523_123854.png)|
 
 ---
 
