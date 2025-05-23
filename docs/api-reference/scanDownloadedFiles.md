@@ -2,6 +2,9 @@
 
 The **Malloc Security SDK** provides a file scanning feature that inspects APK files located in the device’s **Downloads folder**. It identifies potentially malicious APKs by sending the package's signature to the Malloc backend threat intelligence service.
 
+
+> ⚠️⚠️ This function will be updated with an extended knowledge source in version 0.2.X
+
 ### Permissions Required
 Before scanning files, the appropriate permission must be granted based on the Android version. The method [requestFilesScannerPermission()](./mallocSDK.md#permissions-required) can be used to request the appropriate permissions.
 

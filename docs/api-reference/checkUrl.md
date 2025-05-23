@@ -1,4 +1,4 @@
-# 🌐 URL Category Check
+# 🌐 URL Threat Detection
 
 The **Malloc Security SDK** provides a mechanism to check and categorize URLs by contacting the Malloc backend service. This can help your application detect and respond to potentially harmful domains.
 
@@ -55,7 +55,7 @@ executor.shutdown();
 ---
 
 ## Interpretation
-- `category`: The category of the URL. The possible categories are:
+- `category`: The Theat category of the URL. The possible categories are:
 
     | Category      | Description                                |
     |---------------|--------------------------------------------|
