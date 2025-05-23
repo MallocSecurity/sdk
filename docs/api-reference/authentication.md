@@ -1,6 +1,7 @@
 # 🧩 Initialization
 
 To start using the Malloc SDK features, you will need to initialize the SDK in your application's Application class using the API key that was provided to you.
+To initialise the SDK you will need the `key` that was given to you upon suspicion. If you don't have the key please contact us at support@mallocprivacy.com  
 ## 🔧 Initialization Setup
 
 To begin using `MallocSDK`, you must initialize it once in your `Application` class. This setup connects the SDK with your API key and prepares it for future security and privacy operations.
