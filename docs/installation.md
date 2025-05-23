@@ -32,6 +32,6 @@ mallocSecuritySdkAuthToken=[the-token-that-was-given-to-you]
 
 ```groovy
 dependencies {
-    implementation 'com.gitlab.devmalloc:malloc-security-sdk-android:0.1.0'
+    implementation 'com.gitlab.devmalloc:malloc-security-sdk-android:0.1.01'
 }
 ```
