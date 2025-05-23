@@ -22,6 +22,11 @@ dependencyResolutionManagement {
     }
 }
 ```
+#### Add your mallocSecuritySdkAuthToken in `gradle.properties (app)`:
+
+```groovy
+mallocSecuritySdkAuthToken=[the-token-that-was-given-to-you]
+```
 
 #### Add dependency in `build.gradle (app)`:
 
