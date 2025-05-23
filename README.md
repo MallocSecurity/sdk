@@ -50,6 +50,11 @@ dependencies {
 }
 ```
 
+#### Add your mallocSecuritySdkAuthToken in gradle.properties (app):
+```groovy
+mallocSecuritySdkAuthToken=[the-token-that-was-given-to-you]
+```
+
 ### 2. SDK Initialization
 
 In your `Application` class:
