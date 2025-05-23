@@ -5,7 +5,7 @@ Follow these steps to integrate the Malloc Security SDK into your Android projec
 You will need the mallocSecuritySdkAuthToken which is provided to you.
 ## 1. Add the SDK
 
-### 1. SDK Integration
+### SDK Integration
 
 #### Modify `settings.gradle`:
 

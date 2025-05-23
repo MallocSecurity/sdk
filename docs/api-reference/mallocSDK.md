@@ -4,6 +4,10 @@
 Here we provide a quick overview of the methods.
 You can find an extensive description and usage guide for each method in sub-guides provided.
 
+
+Find an example how to use the Malloc SDK class and how to run the methods at: [Github](https://github.com/mallocsecurity/sdk/)
+
+
 ---
 
 The `MallocSDK` class is the main interface for interacting with the Malloc Security SDK. It provides a variety of methods to perform security and privacy scans, such as detecting root access, spyware, suspicious apps, and dangerous files.

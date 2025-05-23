@@ -21,9 +21,10 @@ The **Malloc Security SDK** empowers Android developers to seamlessly integrate 
 ## 🚀 Quickstart
 
 Start here: [Getting Started](./getting-started)
-Find an example Android class on how to run the methods : [Github](https://github.com/mallocsecurity/sdk/)
-Or jump to the [API Reference](./api-reference/authentication) if you're ready to code.
 
+Find an example Android class on how to run the methods : [GitHub](https://github.com/mallocsecurity/sdk/)
+
+Or jump to the [API Reference](./api-reference/authentication) if you're ready to code.
 ## 👥 Who It's For
 
 This SDK is ideal for:
