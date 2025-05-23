@@ -18,7 +18,7 @@ This is a sample Android project that demonstrates the usage of the **[Malloc Se
 ## 📸 Screenshots
 | Main UI | 
 |---------|
-| ![Main UI](main_ui_screenshot.png){width=500} |
+|<img src="main_ui_screenshot.png" alt="Main UI" width="200" height="400"/> |
 
 ---
 
