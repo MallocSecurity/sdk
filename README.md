@@ -46,7 +46,7 @@ dependencyResolutionManagement {
 
 ```groovy
 dependencies {
-    implementation 'com.gitlab.devmalloc:malloc-security-sdk-android:0.1.0'
+  implementation 'com.gitlab.devmalloc:malloc-security-sdk-android:latest.release'
 }
 ```
 
