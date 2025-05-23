@@ -80,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
             {
                 Toast.makeText(mActivity, "Async version selected. Check logs for output.", Toast.LENGTH_SHORT).show();
                 String url = "pornhub.com";
+                Log.d(TAG, "Now Calling checkURLAsync(" + url + ")");
                 MallocSDK.checkURLAsync(url, new MallocSDK.ScanFinishedCallback() {
                     @Override
                     public void onScanFinished(JSONObject result) {
@@ -93,10 +94,10 @@ public class MainActivity extends AppCompatActivity {
                 executor.execute(new Runnable() {
                     @Override
                     public void run() {
-                        Log.d(TAG, "Url Category Check ");
                         String url = "pornhub.com";
+                        Log.d(TAG, "Now Calling checkURLSync(" + url + ")");
                         JSONObject urlCategory = MallocSDK.checkURLSync(url);   // check url category
-                        Log.d(TAG, "Url Category Check Results: " + url + " -> " + urlCategory);
+                        Log.d(TAG, "Url Category Check Results Sync: " + urlCategory);
                     }
                 });
             }
@@ -105,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
         Button button3 = findViewById(R.id.root_check);
         button3.setOnClickListener(listener -> {
             Toast.makeText(mActivity, "Coming soon", Toast.LENGTH_SHORT).show();
-            Log.d(TAG, "rootCheck coming soon");
+            Log.d(TAG, "Root Check Coming Soon");
 //            MallocSDK.rootCheckAsync(new MallocSDK.ScanFinishedCallback() {
 //                @Override
 //                public void onScanFinished(JSONObject rootCheckResults)
@@ -132,6 +133,7 @@ public class MainActivity extends AppCompatActivity {
             {
                 Toast.makeText(mActivity, "Async version selected. Check logs for output.", Toast.LENGTH_SHORT).show();
 
+                Log.d(TAG, "Now Calling scanForDeviceSpywareAsync()");
                 MallocSDK.scanForDeviceSpywareAsync(new MallocSDK.ScanFinishedCallback() {
                     @Override
                     public void onScanFinished(JSONObject results) {
@@ -146,9 +148,9 @@ public class MainActivity extends AppCompatActivity {
                 executor.execute(new Runnable() {
                     @Override
                     public void run() {
-                        Log.d(TAG, "scanForDeviceSpywares");
+                        Log.d(TAG, "Now Calling scanForDeviceSpywareSync()");
                         JSONObject scanForDeviceSpywaresResultsJson = MallocSDK.scanForDeviceSpywareSync();    // scan for device spyware indicators
-                        Log.d(TAG, "Scan Device For Spyware Results: " + scanForDeviceSpywaresResultsJson);
+                        Log.d(TAG, "Scan Device For Spyware Results Sync: " + scanForDeviceSpywaresResultsJson);
                     }
                 });
             }
@@ -182,6 +184,7 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                 };
+                Log.d(TAG, "Now Calling scanAppsPerAppAsync()");
                 MallocSDK.scanAppsPerAppAsync(appsScanningUpdatesCallback, false, false);
 
 
@@ -199,9 +202,9 @@ public class MainActivity extends AppCompatActivity {
                 executor.execute(new Runnable() {
                     @Override
                     public void run() {
-                        Log.d(TAG, "scanApps");
+                        Log.d(TAG, "Now Calling scanAppsPerScanSync()");
                         JSONObject scanAppsResultsJson = MallocSDK.scanAppsPerScanSync(false,  false);  // scan apps for spyware, permissions, accessibility services
-                        Log.d(TAG, "Scan Apps Results: " + scanAppsResultsJson);
+                        Log.d(TAG, "Scan Apps Results Sync: " + scanAppsResultsJson);
                     }
                 });
             }
@@ -213,6 +216,7 @@ public class MainActivity extends AppCompatActivity {
             {
                 Toast.makeText(mActivity, "Async version selected. Check logs for output.", Toast.LENGTH_SHORT).show();
 
+                Log.d(TAG, "Now Calling scanDownloadedFilesAsync()");
                 MallocSDK.scanDownloadedFilesAsync(new MallocSDK.FilesScanningUpdatesCallback() {
                     @Override
                     public void onFilesListGenerated(List<FileToScan> files_to_scan) {
@@ -242,8 +246,9 @@ public class MainActivity extends AppCompatActivity {
                 executor.execute(new Runnable() {
                     @Override
                     public void run() {
+                        Log.d(TAG, "Now Calling scanDownloadedFilesSync()");
                         JSONObject scanDownloadedFilesResultsJsonArray = MallocSDK.scanDownloadedFilesSync();    // scan for downloaded apk files that are marked as malicious
-                        Log.d(TAG, "Scan Downloaded Files Results: " + scanDownloadedFilesResultsJsonArray);
+                        Log.d(TAG, "Scan Downloaded Files Results Sync: " + scanDownloadedFilesResultsJsonArray);
                     }
                 });
             }
