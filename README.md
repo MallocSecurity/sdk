@@ -46,8 +46,13 @@ dependencyResolutionManagement {
 
 ```groovy
 dependencies {
-  implementation 'com.gitlab.devmalloc:malloc-security-sdk-android:latest.release'
+  implementation 'com.gitlab.devmalloc:malloc-security-sdk-android:0.1.02'
 }
+```
+
+#### Add your mallocSecuritySdkAuthToken in gradle.properties (app):
+```groovy
+mallocSecuritySdkAuthToken=[the-token-that-was-given-to-you]
 ```
 
 ### 2. SDK Initialization
