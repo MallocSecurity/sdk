@@ -107,23 +107,31 @@ public class MainActivity extends AppCompatActivity {
         button3.setOnClickListener(listener -> {
             Toast.makeText(mActivity, "Coming soon", Toast.LENGTH_SHORT).show();
             Log.d(TAG, "Root Check Coming Soon");
-//            MallocSDK.rootCheckAsync(new MallocSDK.ScanFinishedCallback() {
-//                @Override
-//                public void onScanFinished(JSONObject rootCheckResults)
-//                {
-//                    Log.d(TAG, "Root Check Results Async: " + rootCheckResults);
-//                }
-//            });
 
-//
-//                executor.execute(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        Log.d(TAG, "rootCheck");
-//                        JSONObject rootCheckResults = MallocSDK.rootCheckSync();
-//                        Log.d(TAG, "Root Check Results: " + rootCheckResults);
-//                    }
-//                });
+            if (syncAsyncOptionChipGroup.getCheckedChipId() == R.id.async_chip)
+            {
+                Toast.makeText(mActivity, "Async version selected. Check logs for output.", Toast.LENGTH_SHORT).show();
+                Log.d(TAG, "Now Calling rootCheckAsync()");
+                MallocSDK.rootCheckAsync(new MallocSDK.ScanFinishedCallback() {
+                    @Override
+                    public void onScanFinished(JSONObject rootCheckResults)
+                    {
+                        Log.d(TAG, "Root Check Results Async: " + rootCheckResults);
+                    }
+                });
+            }
+            else
+            {
+                Toast.makeText(mActivity, "Sync version selected. Check logs for output.", Toast.LENGTH_SHORT).show();
+                executor.execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        Log.d(TAG, "Now Calling rootCheckSync()");
+                        JSONObject rootCheckResults = MallocSDK.rootCheckSync();
+                        Log.d(TAG, "Root Check Results Sync: " + rootCheckResults);
+                    }
+                });
+            }
         });
 
         Button button4 = findViewById(R.id.scan_for_spyware_indicators);
