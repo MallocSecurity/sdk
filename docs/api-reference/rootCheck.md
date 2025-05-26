@@ -42,72 +42,56 @@ executor.shutdown();
 
 ```json
 {
-  "status": "success",
-  "details": {
-    "rooted_flag": false,
-    "root_check_results": [
-      {
-        "issue_found": false,
-        "check_description": "Check for Device Rooting Apps"
-      },
-      {
-        "issue_found": false,
-        "check_description": "Check for Rooting Binaries"
-      },
-      {
-        "issue_found": false,
-        "check_description": "Check Improperly Released Packages"
-      },
-      {
-        "issue_found": false,
-        "check_description": "Check for Development Packages"
-      },
-      {
-        "issue_found": false,
-        "check_description": "Detect Development Keys"
-      },
-      {
-        "issue_found": false,
-        "check_description": "Check for Dangerous Apps"
-      },
-      {
-        "issue_found": false,
-        "check_description": "Check Device Security Properties"
-      },
-      {
-        "issue_found": false,
-        "check_description": "Check Superuser Access"
-      },
-      {
-        "issue_found": false,
-        "check_description": "Check for Superuser APK"
-      },
-      {
-        "issue_found": false,
-        "check_description": "Check for Superuser binary"
-      },
-      {
-        "issue_found": false,
-        "check_description": "Check for embedded OS"
-      },
-      {
-        "issue_found": false,
-        "check_description": "Check for rooting frameworks"
-      },
-      {
-        "issue_found": false,
-        "check_description": "Check for reset device fingerprint properties"
-      },
-      {
-        "issue_found": false,
-        "check_description": "Paths that should be read-only"
-      },
-      {
-        "issue_found": false,
-        "check_description": "Check for Man In the Middle Hooks"
-      }
-    ]
-  }
+    "status": "success",
+    "details": {
+        "rooted_flag": true,
+        "root_check_results": [
+            {
+                "issue_found": false,
+                "check_description": "Root Management Apps"
+            },
+            {
+                "issue_found": false,
+                "check_description": "Potentially Dangerous Apps"
+            },
+            {
+                "issue_found": false,
+                "check_description": "Root Cloaking Apps"
+            },
+            {
+                "issue_found": false,
+                "check_description": "Test Keys"
+            },
+            {
+                "issue_found": false,
+                "check_description": "BusyBox Binary"
+            },
+            {
+                "issue_found": false,
+                "check_description": "SU Binary"
+            },
+            {
+                "issue_found": false,
+                "check_description": "2nd SU Binary check"
+            },
+            {
+                "issue_found": false,
+                "check_description": "RW Paths"
+            },
+            {
+                "issue_found": true,
+                "check_description": "Dangerous Props"
+            },
+            {
+                "issue_found": false,
+                "check_description": "Root via native check"
+            },
+            {
+                "issue_found": false,
+                "check_description": "Magisk specific checks"
+            }
+        ]
+    }
 }
 ```
 
