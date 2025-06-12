@@ -122,12 +122,26 @@ JSONObject scanDownloadedFilesSync()
 
 ### Permissions Required
 
-Before scanning files, the appropriate permission must be granted based on the Android version. This method handles prompting the user for the required permissions.
+Before scanning files, the appropriate permission must be granted based on the Android version. The SDK provides methods to handle prompting the user to grant the required permissions. 
 
+
+> The following method displays a customizable dialog to the user before requesting the required file scanning permission.
+```java
+void requestFilesScannerPermissionWithDialog(Activity activity, @Nullable String title, @Nullable String description)
+```
+- If `title` and `description` are not null, the dialog uses the provided strings.
+- If either is null, the SDK uses the following default values:
+    - **Title:** `"Permission Required"`
+    - **Description:** `"This app needs access to all files on your device so it can scan for malicious files and help keep your device secure. Please grant this permission on the next screen."`
+Use this method if you want to provide additional context to users before prompting for sensitive permissions.
+
+
+> The following method does not show any additional dialogs or explanations before the system permission prompt.
 ```java
 void requestFilesScannerPermission(Activity activity)
 ```
 
+The above methods request the necessary file scanning permission from the user, automatically handling the correct permission based on the device's Android version.
 * For devices running **Android R (API level 30)** and above, this prompts the user for `android.permission.MANAGE_EXTERNAL_STORAGE` permission.
 * For devices running **below Android R**, it requests `android.permission.READ_EXTERNAL_STORAGE`.
 
