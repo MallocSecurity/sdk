@@ -70,7 +70,14 @@ public class MainActivity extends AppCompatActivity {
 
         Button button1 = findViewById(R.id.request_permissions);
         button1.setOnClickListener(listener -> {
-            MallocSDK.requestFilesScannerPermission(mActivity);
+            // Option 1: Show dilog with default wording
+             MallocSDK.requestFilesScannerPermissionWithDialog(mActivity, null, null);
+
+            // Option 2: Show dialog with custom wording
+            // MallocSDK.requestFilesScannerPermissionWithDialog(mActivity, "TEST TITLE", "TEST DESCRIPTION");
+
+            // Option 3: Directly redirect the user to the app settings
+            //MallocSDK.requestFilesScannerPermission(mActivity);
         });
 
         Button button2 = findViewById(R.id.check_url);
