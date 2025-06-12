@@ -99,67 +99,21 @@ executor.shutdown();
 
 ## Interpretation
 
-- `rooted_flag`: A high-level boolean flag indicating if the device appears to be rooted.
-- `root_check_results`: A list of all individual root checks performed, with their respective results and descriptions.
-- `issue_found`: A boolean indicating whether the check flagged something (true = suspicious, false = clean)
-- `check_description`: A short, readable explanation of what that check was about.
-  
-    > The following table lists all possible values for the `check_description`: <markdown-accessiblity-table>
-    <table>
-  <thead>
-    <tr>
-      <th>check_description</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Root Management Apps</strong></td>
-      <td>Checks against known root management applications</td>
-    </tr>
-    <tr>
-      <td><strong>Potentially Dangerous Apps</strong></td>
-      <td>Detects apps that typically require root privileges</td>
-    </tr>
-    <tr>
-      <td><strong>Root Cloaking Apps</strong></td>
-      <td>Identifies root-hiding apps and checks native library read access</td>
-    </tr>
-    <tr>
-      <td><strong>Test Keys</strong></td>
-      <td>Verifies kernel signing status (Release-Keys vs Test-Keys)</td>
-    </tr>
-    <tr>
-      <td><strong>BusyBox Binary</strong></td>
-      <td>Scans common system locations for BusyBox</td>
-    </tr>
-    <tr>
-      <td><strong>SU Binary</strong></td>
-      <td>Checks common paths for Superuser binary</td>
-    </tr>
-    <tr>
-      <td><strong>2nd SU Binary Check</strong></td>
-      <td>Alternative check for Superuser binary</td>
-    </tr>
-    <tr>
-      <td><strong>RW Paths</strong></td>
-      <td>Verifies write permissions on protected system directories</td>
-    </tr>
-    <tr>
-      <td><strong>Dangerous Props</strong></td>
-      <td>Examines system properties for known risky configurations</td>
-    </tr>
-    <tr>
-      <td><strong>Root via Native Check</strong></td>
-      <td>Performs low-level root detection through native library checks</td>
-    </tr>
-    <tr>
-      <td><strong>Magisk Specific Checks</strong></td>
-      <td>Looks for Magisk framework components in common locations</td>
-    </tr>
-  </tbody>
-</table>
-</markdown-accessiblity-table>
+* `rooted_flag`: A high-level boolean flag indicating if the device appears to be rooted.
+* `root_check_results`: A list of all individual root checks performed, with their respective results and descriptions.
+* `issue_found`: A boolean indicating whether the check flagged something (true = suspicious, false = clean)
+* `check_description`: A short, readable explanation of what that check was about. Possible values:  
+  - **Root Management Apps**: Checks against known root management applications.  
+  - **Potentially Dangerous Apps**: Detects apps that typically require root privileges.  
+  - **Root Cloaking Apps**: Identifies root-hiding apps and checks native library read access.  
+  - **Test Keys**: Verifies kernel signing status (Release-Keys vs Test-Keys).  
+  - **BusyBox Binary**: Scans common system locations for BusyBox.  
+  - **SU Binary**: Checks common paths for Superuser binary.  
+  - **2nd SU Binary Check**: Alternative check for Superuser binary.  
+  - **RW Paths**: Verifies write permissions on protected system directories.  
+  - **Dangerous Props**: Examines system properties for known risky configurations.  
+  - **Root via Native Check**: Performs low-level root detection through native library checks.  
+  - **Magisk Specific Checks**: Looks for Magisk framework components in common locations.  
 
 The `status` field in the returned JSON indicates the result of the operation. Possible values include:
 * `success` – The operation completed successfully and the result contains valid data.
