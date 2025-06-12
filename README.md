@@ -7,7 +7,7 @@ This is a sample Android project that demonstrates the usage of the **[Malloc Se
 - SDK initialization
 - Permissions request
 - URL Threat Detection (sync & async)
-- Root check (⚠️  Coming soon) 
+- Root check (sync & async) 
 - Scan for device spyware indicators (sync & async)
 - App scanning (sync & async)
 - Scan for malicious downloads (sync & async)
