@@ -200,7 +200,7 @@ public class MainActivity extends AppCompatActivity {
 
                 };
                 Log.d(TAG, "Now Calling scanAppsPerAppAsync()");
-                MallocSDK.scanAppsPerAppAsync(appsScanningUpdatesCallback, false, false);
+                MallocSDK.scanAppsPerAppAsync(appsScanningUpdatesCallback, false, false, true); // scan apps for spyware, permissions, accessibility services and malicious apks
 
 
 //                MallocSDK.scanAppsAsync(new MallocSDK.ScanFinishedCallback() {
@@ -218,7 +218,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         Log.d(TAG, "Now Calling scanAppsPerScanSync()");
-                        JSONObject scanAppsResultsJson = MallocSDK.scanAppsPerScanSync(false,  false);  // scan apps for spyware, permissions, accessibility services
+                        JSONObject scanAppsResultsJson = MallocSDK.scanAppsPerScanSync(false,  false, true);  // scan apps for spyware, permissions, accessibility services and malicious apks
                         Log.d(TAG, "Scan Apps Results Sync: " + scanAppsResultsJson);
                     }
                 });
