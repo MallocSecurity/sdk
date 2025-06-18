@@ -87,20 +87,23 @@ Scan installed apps for spyware, dangerous permissions, and enabled accessibilit
 void scanAppsPerAppAsync(
     @NonNull AppsScanningUpdatesCallback appsScanningUpdatesCallback,
     boolean include_system_apps,
-    boolean include_apps_with_no_internet_access
+    boolean include_apps_with_no_internet_access,
+    boolean scan_apps_sha
 )
 
 // Summary Scanning (Asynchronous with final result only)
 void scanAppsAsync(
     @NonNull ScanFinishedCallback callback,
     boolean include_system_apps,
-    boolean include_apps_with_no_internet_access
+    boolean include_apps_with_no_internet_access,
+    boolean scan_apps_sha
 )
 
 // Summary Scanning (Synchronous)
 JSONObject scanAppsPerScanSync(
     boolean include_system_apps,
-    boolean include_apps_with_no_internet_access
+    boolean include_apps_with_no_internet_access,
+    boolean scan_apps_sha
 )
 ```
 
