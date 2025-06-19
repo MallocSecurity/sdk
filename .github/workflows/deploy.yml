@@ -12,32 +12,56 @@ jobs:
       id-token: write
 
     steps:
-      - uses: MallocSecurity/checkout@v1
+      - name: Checkout (HTTPS)
+        uses: MallocSecurity/checkout@v1
         with:
           ref: website
+          # Critical security settings
+          ssh-key: ""
           persist-credentials: true
+          # Force HTTPS clone
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Nuclear SSH Removal
+        run: |
+          rm -rf ~/.ssh || true
+          git config --global --unset-all url.git@github.com.insteadof || true
+          git config --global core.sshCommand ""
 
       - name: Setup Node.js
         uses: MallocSecurity/setup-node@v1
         with:
           node-version: 18
+          always-auth: true
+          registry-url: https://registry.npmjs.org
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
-
-      - name: Configure Git for HTTPS
         run: |
+          yarn install --frozen-lockfile
+          yarn cache clean
+
+      - name: Configure Unbreakable HTTPS
+        run: |
+          git config --global credential.helper store
+          echo "https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com" > ~/.git-credentials
           git config --global url."https://github.com/".insteadOf git@github.com:
           git config --global url."https://github.com/".insteadOf ssh://git@github.com/
-          git config --global url."https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/".insteadOf "https://github.com/"
 
-      - name: Build and Force HTTPS Deploy
+      - name: Build and Deploy
         env:
+          # Lock down all possible SSH avenues
+          GIT_SSH_COMMAND: ""
+          GIT_TERMINAL_PROMPT: 0
+          # Deployment controls
           USE_SSH: false
-          GIT_USER: "GitHub Actions"
+          GIT_USER: "GitHub Actions Bot"
           GIT_EMAIL: "actions@github.com"
+          # Force HTTPS
+          NODE_EXTRA_CA_CERTS: ""
         run: |
           git config --global user.name "$GIT_USER"
           git config --global user.email "$GIT_EMAIL"
           yarn build
-          GIT_ASKPASS=true yarn deploy
+          # Nuclear deployment command
+          GIT_ASKPASS=echo yarn deploy --skip-ssh
