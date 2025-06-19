@@ -1,4 +1,5 @@
 name: Deploy Malloc SDK docs
+
 on:
   push:
     branches: [website]
@@ -12,54 +13,24 @@ jobs:
       id-token: write
 
     steps:
-      - name: Checkout (HTTPS Strict)
-        uses: MallocSecurity/checkout@v1
+      - name: Checkout source branch
+        uses: actions/checkout@v4
         with:
           ref: website
-          ssh-key: ""
-          persist-credentials: true
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Purge SSH Configs
-        run: |
-          rm -rf ~/.ssh
-          git config --global --unset-all url.git@github.com.insteadof || true
-          git config --global --unset-all url.ssh://git@github.com/.insteadof || true
 
       - name: Setup Node.js
-        uses: MallocSecurity/setup-node@v1
+        uses: actions/setup-node@v4
         with:
           node-version: 18
-          
-      - name: Configure Git
-        run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
+
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Configure Unbreakable Git HTTPS
-        run: |
-          # Force GitHub to only use HTTPS with token
-          echo "https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com" > ~/.git-credentials
-          git config --global credential.helper store
-          git config --global url."https://github.com/".insteadOf git@github.com:
-          git config --global url."https://github.com/".insteadOf ssh://git@github.com/
-          git config --global url."https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/".insteadOf git://github.com/
+      - name: Build website
+        run: yarn build
 
-      - name: Build and Deploy
-        env:
-          # Nuclear options to prevent any SSH fallback
-          GIT_SSH_COMMAND: ""
-          GIT_TERMINAL_PROMPT: "0"
-          # Deployment controls
-          USE_SSH: "false"
-          GIT_USER: "GitHub Actions"
-          GIT_EMAIL: "actions@github.com"
-        run: |
-          # Verify git config
-          git config --global --list | grep -i url
-          
-          # Build and deploy with forced HTTPS
-          yarn build
-          GIT_ASKPASS=echo yarn deploy 
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
