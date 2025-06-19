@@ -12,12 +12,12 @@ jobs:
       id-token: write
 
     steps:
-      - uses: MallocSecurity/checkout@v4.1.1
+      - uses: MallocSecurity/checkout@v1
         with:
           ref: website
 
       - name: Setup Node.js
-        uses: MallocSecurity/setup-node@v3.8.2
+        uses: MallocSecurity/setup-node@v1
         with:
           node-version: 18
 
