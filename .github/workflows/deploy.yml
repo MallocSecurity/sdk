@@ -12,56 +12,50 @@ jobs:
       id-token: write
 
     steps:
-      - name: Checkout (HTTPS)
+      - name: Checkout (HTTPS Strict)
         uses: MallocSecurity/checkout@v1
         with:
           ref: website
-          # Critical security settings
           ssh-key: ""
           persist-credentials: true
-          # Force HTTPS clone
-          fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Nuclear SSH Removal
+      - name: Purge SSH Configs
         run: |
-          rm -rf ~/.ssh || true
+          rm -rf ~/.ssh
           git config --global --unset-all url.git@github.com.insteadof || true
-          git config --global core.sshCommand ""
+          git config --global --unset-all url.ssh://git@github.com/.insteadof || true
 
       - name: Setup Node.js
         uses: MallocSecurity/setup-node@v1
         with:
           node-version: 18
-          always-auth: true
-          registry-url: https://registry.npmjs.org
 
       - name: Install dependencies
-        run: |
-          yarn install --frozen-lockfile
-          yarn cache clean
+        run: yarn install --frozen-lockfile
 
-      - name: Configure Unbreakable HTTPS
+      - name: Configure Unbreakable Git HTTPS
         run: |
-          git config --global credential.helper store
+          # Force GitHub to only use HTTPS with token
           echo "https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com" > ~/.git-credentials
+          git config --global credential.helper store
           git config --global url."https://github.com/".insteadOf git@github.com:
           git config --global url."https://github.com/".insteadOf ssh://git@github.com/
+          git config --global url."https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/".insteadOf git://github.com/
 
       - name: Build and Deploy
         env:
-          # Lock down all possible SSH avenues
+          # Nuclear options to prevent any SSH fallback
           GIT_SSH_COMMAND: ""
-          GIT_TERMINAL_PROMPT: 0
+          GIT_TERMINAL_PROMPT: "0"
           # Deployment controls
-          USE_SSH: false
-          GIT_USER: "GitHub Actions Bot"
+          USE_SSH: "false"
+          GIT_USER: "GitHub Actions"
           GIT_EMAIL: "actions@github.com"
-          # Force HTTPS
-          NODE_EXTRA_CA_CERTS: ""
         run: |
-          git config --global user.name "$GIT_USER"
-          git config --global user.email "$GIT_EMAIL"
+          # Verify git config
+          git config --global --list | grep -i url
+          
+          # Build and deploy with forced HTTPS
           yarn build
-          # Nuclear deployment command
           GIT_ASKPASS=echo yarn deploy --skip-ssh
