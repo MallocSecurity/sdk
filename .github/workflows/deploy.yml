@@ -2,23 +2,23 @@ name: Deploy Malloc SDK Docs
 
 on:
   push:
-    branches: [website]  # or your default branch
+    branches: [website] 
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: MallocSecurity/checkout@v4  # 👈 Your fork
+      - uses: MallocSecurity/checkout@v4  
         with:
           ref: website
     
       - name: Setup Node.js
-        uses: MallocSecurity/setup-node@v3  # 👈 Your fork
+        uses: MallocSecurity/setup-node@v3  
         with:
           node-version: 18
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile  # for reproducible builds
+        run: yarn install --frozen-lockfile  
 
       - name: Build and Deploy
         env:
