@@ -1,8 +1,8 @@
-name: Deploy Docusaurus to GitHub Pages
+name: Deploy Malloc SDK Docs
 
 on:
   push:
-    branches: [main]  # Change to 'master' if your default branch is different
+    branches: [main]  # or your default branch
 
 jobs:
   deploy:
@@ -13,13 +13,18 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18  # or the version you use
+          node-version: 18  # matches your environment
 
       - name: Install dependencies
-        run: yarn install
+        run: yarn install --frozen-lockfile  # for reproducible builds
 
       - name: Build and Deploy
         env:
-          GIT_USER: ${{ github.actor }}
+          GIT_USER: mallocsecurity  # hardcoded org name
           GIT_PASS: ${{ secrets.GITHUB_TOKEN }}
-        run: yarn deploy
+          USE_SSH: true  # recommended for organizations
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          yarn build
+          yarn deploy
