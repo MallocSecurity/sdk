@@ -1,4 +1,4 @@
-name: Deploy Malloc SDK Docus
+name: Deploy Docusaurus
 on:
   push:
     branches: [website]
@@ -15,6 +15,7 @@ jobs:
       - uses: MallocSecurity/checkout@v1
         with:
           ref: website
+          persist-credentials: true  # Crucial for authentication
 
       - name: Setup Node.js
         uses: MallocSecurity/setup-node@v1
@@ -24,18 +25,13 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Configure Git HTTPS
-        run: |
-          git config --global url."https://github.com/".insteadOf git@github.com:
-          git config --global url."https://".insteadOf git://
-
-      - name: Build and Deploy
-        env:
-          USE_SSH: false
-          GIT_USER: mallocsecurity
-          GIT_PASS: ${{ secrets.GITHUB_TOKEN }}
+      - name: Configure Git Auth
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
+          git config --global url."https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com".insteadOf "https://github.com"
+
+      - name: Build and Deploy
+        run: |
           yarn build
           yarn deploy
