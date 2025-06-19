@@ -4,6 +4,7 @@ title: Introduction
 sidebar_position: 1
 ---
 
+
 # Welcome to Malloc Security SDK
 
 The **Malloc Security SDK** empowers Android developers to seamlessly integrate **privacy protection**, **threat detection**, and **real-time device monitoring** into their applications — all with minimal effort and maximum impact.
