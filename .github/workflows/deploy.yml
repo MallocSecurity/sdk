@@ -2,7 +2,7 @@ name: Deploy Malloc SDK Docs
 
 on:
   push:
-    branches: [main]  # or your default branch
+    branches: [dh-pages]  # or your default branch
 
 jobs:
   deploy:
