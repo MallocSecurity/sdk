@@ -8,12 +8,12 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: MallocSecurity/checkout@v4  
+      - uses: MallocSecurity/checkout 
         with:
           ref: website
     
       - name: Setup Node.js
-        uses: MallocSecurity/setup-node@v3  
+        uses: MallocSecurity/setup-node 
         with:
           node-version: 18
 
