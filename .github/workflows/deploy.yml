@@ -62,4 +62,4 @@ jobs:
           
           # Build and deploy with forced HTTPS
           yarn build
-          GIT_ASKPASS=echo yarn deploy --skip-ssh
+          GIT_ASKPASS=echo yarn deploy 
