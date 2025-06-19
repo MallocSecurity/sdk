@@ -44,9 +44,9 @@ static JSONObject rootCheckSync()
 
 ---
 
-## 🌐 URL Category Check
+## 🌐 URL Threat Detection 
 
-Validate and categorize a domain by contacting Malloc's backend service, see the [URL Category Check](./checkURL.md) guide.
+Validate and categorize a domain by contacting Malloc's backend service, see the [URL Category Check](./checkUrl.md) guide.
 
 > This operation is available in both **synchronous** and **asynchronous** versions (with callbacks).
 
