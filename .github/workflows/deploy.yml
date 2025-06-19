@@ -30,7 +30,11 @@ jobs:
         uses: MallocSecurity/setup-node@v1
         with:
           node-version: 18
-
+          
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
