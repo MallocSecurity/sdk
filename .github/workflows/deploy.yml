@@ -8,12 +8,14 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18  # matches your environment
+    - uses: MallocSecurity/checkout@v4  # 👈 Your fork
+      with:
+        ref: website
+  
+    - name: Setup Node.js
+      uses: MallocSecurity/setup-node@v3  # 👈 Your fork
+      with:
+        node-version: 18
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile  # for reproducible builds
