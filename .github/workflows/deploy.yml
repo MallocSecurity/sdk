@@ -8,14 +8,14 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: MallocSecurity/checkout@v4  # 👈 Your fork
-      with:
-        ref: website
-  
-    - name: Setup Node.js
-      uses: MallocSecurity/setup-node@v3  # 👈 Your fork
-      with:
-        node-version: 18
+      - uses: MallocSecurity/checkout@v4  # 👈 Your fork
+        with:
+          ref: website
+    
+      - name: Setup Node.js
+        uses: MallocSecurity/setup-node@v3  # 👈 Your fork
+        with:
+          node-version: 18
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile  # for reproducible builds
