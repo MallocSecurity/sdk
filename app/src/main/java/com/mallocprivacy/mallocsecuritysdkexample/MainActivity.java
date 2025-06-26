@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         Button button1 = findViewById(R.id.request_permissions);
         button1.setOnClickListener(listener -> {
             // Option 1: Show dilog with default wording
-             MallocSDK.requestFilesScannerPermissionWithDialog(mActivity, null, null);
+            MallocSDK.requestFilesScannerPermissionWithDialog(mActivity, null, null);
 
             // Option 2: Show dialog with custom wording
             // MallocSDK.requestFilesScannerPermissionWithDialog(mActivity, "TEST TITLE", "TEST DESCRIPTION");
@@ -175,6 +175,8 @@ public class MainActivity extends AppCompatActivity {
         button5.setOnClickListener(listener -> {
             if (syncAsyncOptionChipGroup.getCheckedChipId() == R.id.async_chip)
             {
+                long start_timestamp = System.currentTimeMillis() / 1000L;
+
                 Toast.makeText(mActivity, "Async version selected. Check logs for output.", Toast.LENGTH_SHORT).show();
 
                 MallocSDK.AppsScanningUpdatesCallback appsScanningUpdatesCallback = new MallocSDK.AppsScanningUpdatesCallback() {
@@ -196,11 +198,12 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onScanFinished(JSONObject result) {
                         Log.d(TAG, "ScanAppsCallback: Scan Apps Results Async: " + result);
+                        Log.d(TAG, "Scan Apps Time: " + (System.currentTimeMillis() / 1000L - start_timestamp) + "s");
                     }
 
                 };
                 Log.d(TAG, "Now Calling scanAppsPerAppAsync()");
-                MallocSDK.scanAppsPerAppAsync(appsScanningUpdatesCallback, false, false, true); // scan apps for spyware, permissions, accessibility services and malicious apks
+                MallocSDK.scanAppsPerAppAsync(appsScanningUpdatesCallback, true, true, true); // scan apps for spyware, permissions, accessibility services and malicious apks
 
 
 //                MallocSDK.scanAppsAsync(new MallocSDK.ScanFinishedCallback() {
