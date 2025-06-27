@@ -198,20 +198,25 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onScanFinished(JSONObject result) {
                         Log.d(TAG, "ScanAppsCallback: Scan Apps Results Async: " + result);
-                        Log.d(TAG, "Scan Apps Time: " + (System.currentTimeMillis() / 1000L - start_timestamp) + "s");
+                        Log.d(TAG, "Scan Apps Time: " + (System.currentTimeMillis() / 1000L - start_timestamp));
                     }
 
                 };
                 Log.d(TAG, "Now Calling scanAppsPerAppAsync()");
-                MallocSDK.scanAppsPerAppAsync(appsScanningUpdatesCallback, true, true, true); // scan apps for spyware, permissions, accessibility services and malicious apks
 
+                // scanAppsPerAppAsync example 1
+                MallocSDK.scanAppsPerAppAsync(appsScanningUpdatesCallback, false, false, true); // scan apps for spyware, permissions, accessibility services and malicious apks
+
+                // scanAppsPerAppAsync example 2
+                //List<String> packages_to_scan1 = List.of("com.eset.ems2.gp", "com.alibaba.aliexpresshd");
+                //MallocSDK.scanAppsPerAppAsync(appsScanningUpdatesCallback, packages_to_scan1); // scan apps for spyware, permissions, accessibility services and malicious apks
 
 //                MallocSDK.scanAppsAsync(new MallocSDK.ScanFinishedCallback() {
 //                    @Override
 //                    public void onScanFinished(JSONObject result) {
 //                        Log.d(TAG, "Scan Apps Results Async: " + result);
 //                    }
-//                }, false, false);
+//                }, false, false, true);
             }
             else
             {
@@ -221,8 +226,15 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         Log.d(TAG, "Now Calling scanAppsPerScanSync()");
+
+                        // scanAppsPerScanSync example 1
                         JSONObject scanAppsResultsJson = MallocSDK.scanAppsPerScanSync(false,  false, true);  // scan apps for spyware, permissions, accessibility services and malicious apks
                         Log.d(TAG, "Scan Apps Results Sync: " + scanAppsResultsJson);
+
+                        // scanAppsPerScanSync example 2
+                        //List<String> packages_to_scan1 = List.of("com.eset.ems2.gp", "com.alibaba.aliexpresshd");
+                        //JSONObject scanAppsResultsJson1 = MallocSDK.scanAppsPerScanSync(packages_to_scan1, true); // scan apps for spyware, permissions, accessibility services and malicious apks
+                        //Log.d(TAG, "Scan Apps Results Sync: " + scanAppsResultsJson1);
                     }
                 });
             }
