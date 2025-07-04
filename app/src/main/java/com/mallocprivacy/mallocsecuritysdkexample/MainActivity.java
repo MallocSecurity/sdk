@@ -19,6 +19,7 @@ import com.mallocprivacy.mallocsecuritysdk.MallocSDK;
 
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -68,8 +69,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button button1 = findViewById(R.id.request_permissions);
-        button1.setOnClickListener(listener -> {
+        Button request_permissions_button = findViewById(R.id.request_permissions);
+        request_permissions_button.setOnClickListener(listener -> {
             // Option 1: Show dilog with default wording
             MallocSDK.requestFilesScannerPermissionWithDialog(mActivity, null, null);
 
@@ -80,8 +81,8 @@ public class MainActivity extends AppCompatActivity {
             //MallocSDK.requestFilesScannerPermission(mActivity);
         });
 
-        Button button2 = findViewById(R.id.check_url);
-        button2.setOnClickListener(listener -> {
+        Button check_url_button = findViewById(R.id.check_url);
+        check_url_button.setOnClickListener(listener -> {
 
             if (syncAsyncOptionChipGroup.getCheckedChipId() == R.id.async_chip)
             {
@@ -110,8 +111,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button button3 = findViewById(R.id.root_check);
-        button3.setOnClickListener(listener -> {
+        Button root_check_button = findViewById(R.id.root_check);
+        root_check_button.setOnClickListener(listener -> {
             Toast.makeText(mActivity, "Coming soon", Toast.LENGTH_SHORT).show();
             Log.d(TAG, "Root Check Coming Soon");
 
@@ -141,8 +142,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button button4 = findViewById(R.id.scan_for_spyware_indicators);
-        button4.setOnClickListener(listener -> {
+        Button scan_for_spyware_indicators_button = findViewById(R.id.scan_for_spyware_indicators);
+        scan_for_spyware_indicators_button.setOnClickListener(listener -> {
 
             if (syncAsyncOptionChipGroup.getCheckedChipId() == R.id.async_chip)
             {
@@ -171,8 +172,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button button5 = findViewById(R.id.scan_apps);
-        button5.setOnClickListener(listener -> {
+        Button scan_apps_button = findViewById(R.id.scan_apps);
+        scan_apps_button.setOnClickListener(listener -> {
             if (syncAsyncOptionChipGroup.getCheckedChipId() == R.id.async_chip)
             {
                 long start_timestamp = System.currentTimeMillis() / 1000L;
@@ -203,13 +204,7 @@ public class MainActivity extends AppCompatActivity {
 
                 };
                 Log.d(TAG, "Now Calling scanAppsPerAppAsync()");
-
-                // scanAppsPerAppAsync example 1
-                MallocSDK.scanAppsPerAppAsync(appsScanningUpdatesCallback, false, false, true); // scan apps for spyware, permissions, accessibility services and malicious apks
-
-                // scanAppsPerAppAsync example 2
-                //List<String> packages_to_scan1 = List.of("com.eset.ems2.gp", "com.alibaba.aliexpresshd");
-                //MallocSDK.scanAppsPerAppAsync(appsScanningUpdatesCallback, packages_to_scan1); // scan apps for spyware, permissions, accessibility services and malicious apks
+                MallocSDK.scanAppsPerAppAsync(appsScanningUpdatesCallback, true, true, true); // scan apps for spyware, permissions, accessibility services and malicious apks
 
 //                MallocSDK.scanAppsAsync(new MallocSDK.ScanFinishedCallback() {
 //                    @Override
@@ -226,28 +221,71 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         Log.d(TAG, "Now Calling scanAppsPerScanSync()");
-
-                        // scanAppsPerScanSync example 1
-                        JSONObject scanAppsResultsJson = MallocSDK.scanAppsPerScanSync(false,  false, true);  // scan apps for spyware, permissions, accessibility services and malicious apks
+                        JSONObject scanAppsResultsJson = MallocSDK.scanAppsPerScanSync(true,  true, true);  // scan apps for spyware, permissions, accessibility services and malicious apks
                         Log.d(TAG, "Scan Apps Results Sync: " + scanAppsResultsJson);
-
-                        // scanAppsPerScanSync example 2
-                        //List<String> packages_to_scan1 = List.of("com.eset.ems2.gp", "com.alibaba.aliexpresshd");
-                        //JSONObject scanAppsResultsJson1 = MallocSDK.scanAppsPerScanSync(packages_to_scan1, true); // scan apps for spyware, permissions, accessibility services and malicious apks
-                        //Log.d(TAG, "Scan Apps Results Sync: " + scanAppsResultsJson1);
                     }
                 });
             }
         });
 
-        Button button6 = findViewById(R.id.scan_downloads);
-        button6.setOnClickListener(listener -> {
+        Button scan_app_list_button = findViewById(R.id.scan_app_list);
+        scan_app_list_button.setOnClickListener(listener -> {
+            List<String> packages_to_scan1 = List.of("com.eset.ems2.gp", "com.alibaba.aliexpresshd", "com.google.android.youtube", "com.android.providers.telephony");
+
+            if (syncAsyncOptionChipGroup.getCheckedChipId() == R.id.async_chip)
+            {
+                long start_timestamp = System.currentTimeMillis() / 1000L;
+
+                Toast.makeText(mActivity, "Async version selected. Check logs for output.", Toast.LENGTH_SHORT).show();
+
+                MallocSDK.AppsScanningUpdatesCallback appsScanningUpdatesCallback = new MallocSDK.AppsScanningUpdatesCallback() {
+                    @Override
+                    public void onAppsToScanListReady(List<ApplicationInfo> apps_to_scan) {
+                        Log.d(TAG, "ScanAppsCallback: App List To Scan Ready" + apps_to_scan);
+                    }
+
+                    @Override
+                    public void onScanningAppUpdate(ApplicationInfo now_Scanning_application_info) {
+                        Log.d(TAG, "ScanAppsCallback: Now Scanning App: " + now_Scanning_application_info.packageName);
+                    }
+
+                    @Override
+                    public void onScanProgressUpdate(ApplicationInfo now_scanning_application_info, int total_apps_scanned, int total_apps_to_scan) {
+                        Log.d(TAG, "ScanAppsCallback: Scan Progress Update: " + now_scanning_application_info.packageName + ", " + total_apps_scanned + ", " + total_apps_to_scan);
+                    }
+
+                    @Override
+                    public void onScanFinished(JSONObject result) {
+                        Log.d(TAG, "ScanAppsCallback: Scan Apps Results Async: " + result);
+                        Log.d(TAG, "Scan Apps Time: " + (System.currentTimeMillis() / 1000L - start_timestamp));
+                    }
+
+                };
+                Log.d(TAG, "Now Calling scanAppsPerAppAsync()");
+                MallocSDK.scanAppsPerAppAsync(appsScanningUpdatesCallback, packages_to_scan1); // scan apps for spyware, permissions, accessibility services and malicious apks
+            }
+            else
+            {
+                Toast.makeText(mActivity, "Sync version selected. Check logs for output.", Toast.LENGTH_SHORT).show();
+
+                executor.execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        Log.d(TAG, "Now Calling scanAppsPerScanSync()");
+                        JSONObject scanAppsResultsJson1 = MallocSDK.scanAppsPerScanSync(packages_to_scan1, true); // scan apps for spyware, permissions, accessibility services and malicious apks
+                        Log.d(TAG, "Scan Apps Results Sync: " + scanAppsResultsJson1);
+                    }
+                });
+            }
+        });
+
+        Button scan_downloads_button = findViewById(R.id.scan_downloads);
+        scan_downloads_button.setOnClickListener(listener -> {
             if (syncAsyncOptionChipGroup.getCheckedChipId() == R.id.async_chip)
             {
                 Toast.makeText(mActivity, "Async version selected. Check logs for output.", Toast.LENGTH_SHORT).show();
 
-                Log.d(TAG, "Now Calling scanDownloadedFilesAsync()");
-                MallocSDK.scanDownloadedFilesAsync(new MallocSDK.FilesScanningUpdatesCallback() {
+                MallocSDK.FilesScanningUpdatesCallback filesScanningUpdatesCallback = new MallocSDK.FilesScanningUpdatesCallback() {
                     @Override
                     public void onFilesListGenerated(List<FileToScan> files_to_scan) {
                         Log.d(TAG, "Scan Downloaded Files Callback - Files List Generated: " + files_to_scan);
@@ -265,9 +303,13 @@ public class MainActivity extends AppCompatActivity {
 
                     @Override
                     public void onScanFinished(JSONObject result) {
+
                         Log.d(TAG, "Scan Downloaded Files Callback - Results Async: " + result);
                     }
-                });
+                };
+
+                Log.d(TAG, "Now Calling scanDownloadedFilesAsync()");
+                MallocSDK.scanDownloadedFilesAsync(filesScanningUpdatesCallback);
             }
             else
             {
@@ -284,7 +326,62 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Button scan_file_list_button = findViewById(R.id.scan_file_list);
+        scan_file_list_button.setOnClickListener(listener -> {
+            List<String> file_paths_to_scan = List.of(
+                    "/storage/emulated/0/Download/Tasker.6.3.0-beta.apk",
+                    "/storage/emulated/0/DCIM/Camera/PXL_20250721_110106038.jpg",
+                    "/storage/self/primary/DCIM/Camera/IMG_20240911_130259.jpg",
+                    "/sdcard/DCIM/Camera/IMG_20240911_130259.jpg",
+                    "/storage/self/primary/Download/insecurebankv2__1_ (1).apk",
+                    "/storage/self/primary/Download/SpinDeals app_2.70_APKPure (1).apk",
+                    "/storage/self/primary/Download/the_times_of_india.apk",
+                    "/storage/emulated/0/Download/aba17776b98b8660b50d2a4ef9aa0a79e17f22a47a76b7658b3981f7bddeadd6-1 (1).apk");
 
+            if (syncAsyncOptionChipGroup.getCheckedChipId() == R.id.async_chip)
+            {
+                Toast.makeText(mActivity, "Async version selected. Check logs for output.", Toast.LENGTH_SHORT).show();
+
+                MallocSDK.FilesScanningUpdatesCallback filesScanningUpdatesCallback = new MallocSDK.FilesScanningUpdatesCallback() {
+                    @Override
+                    public void onFilesListGenerated(List<FileToScan> files_to_scan) {
+                        Log.d(TAG, "Scan Files Callback - Files List Generated: " + files_to_scan);
+                    }
+
+                    @Override
+                    public void onScanningFileUpdate(String file_name, String file_path) {
+                        Log.d(TAG, "Scan Files Callback - Now Scanning File: " + file_name + ", " + file_path);
+                    }
+
+                    @Override
+                    public void onScanProgressUpdate(String file_name, String file_path, int total_files_scanned, int total_files_to_scan) {
+                        Log.d(TAG, "Scan Files Callback - Scan Progress Update: " + file_name + ", " + file_path + ", " + total_files_scanned + ", " + total_files_to_scan);
+                    }
+
+                    @Override
+                    public void onScanFinished(JSONObject result) {
+
+                        Log.d(TAG, "Scan Files Callback - Results Async: " + result);
+                    }
+                };
+
+                Log.d(TAG, "Now Calling scanFilesAsync()");
+                MallocSDK.scanFilesAsync(file_paths_to_scan, filesScanningUpdatesCallback);
+            }
+            else
+            {
+                Toast.makeText(mActivity, "Sync version selected. Check logs for output.", Toast.LENGTH_SHORT).show();
+
+                executor.execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        Log.d(TAG, "Now Calling scanFilesSync()");
+                        JSONObject scanDownloadedFilesResultsJsonArray = MallocSDK.scanFilesSync(file_paths_to_scan);
+                        Log.d(TAG, "Scan Files Results Sync: " + scanDownloadedFilesResultsJsonArray);
+                    }
+                });
+            }
+        });
 
     }
 
