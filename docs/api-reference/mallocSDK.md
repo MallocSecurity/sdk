@@ -109,18 +109,22 @@ JSONObject scanAppsPerScanSync(
 
 ---
 
+
 ## 📂 File Scanning
 
-Scan the device’s downloads folder for potentially malicious APKs, see the [Downloaded Files Scan](./scanDownloadedFiles.md) guide.
+Scan the device’s files for potentially malicious content. You can scan the **Downloads folder** or specify a list of file paths to scan.  
+See the full [File Scanning Guide](./scanDownloadedFiles.md) for details.
 
-> This operation is available in both **synchronous** and **asynchronous** versions (with callbacks).
+> Both operations are available in **synchronous** and **asynchronous** versions (with callbacks).
 
 ```java
 // Asynchronous with progress updates
 void scanDownloadedFilesAsync(@NonNull FilesScanningUpdatesCallback callback)
+void scanFilesAsync(List<String> file_paths_to_scan, @NonNull FilesScanningUpdatesCallback callback)
 
-// Synchronous 
+// Synchronous
 JSONObject scanDownloadedFilesSync()
+JSONObject scanFilesSync(List<String> file_paths_to_scan)
 ```
 
 ### Permissions Required
