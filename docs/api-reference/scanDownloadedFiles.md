@@ -1,6 +1,6 @@
 # 📂 File Scanning
 
-The **Malloc Security SDK** provides a file scanning feature that inspects APK files located in the device’s **Downloads folder**. It identifies potentially malicious APKs by sending the package's signature to the Malloc backend threat intelligence service.
+The **Malloc Security SDK** provides a file scanning feature that inspects APK files located in the device’s **Downloads folder**. It identifies potentially malicious files by sending the package's signature to the Malloc backend threat intelligence service.
 
 
 > ⚠️⚠️ This function will be updated with an extended knowledge source in version 0.2.X
@@ -91,7 +91,7 @@ executor.execute(new Runnable() {
 
 ## Interpretation
 
-* `downloadsScanResultsArray`: An array with the scanned apks.
+* `downloadsScanResultsArray`: An array with the scanned files.
 * `sha256`: The SHA-256 hash of the APK file.
 * `file_name`: The name of the file scanned.
 * `apk_name`: Human-readable name if resolvable.
